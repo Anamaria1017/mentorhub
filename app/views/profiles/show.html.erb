@@ -1,9 +1,9 @@
-<div>
-  <div>
+<div class="container col-8">
+  <div class="p-3">
     <h1> My Profile</h1>
     <div>
       <div>
-        <h3 class="pb-3">Profile Details</h3>
+        <h3 class="py-3">Profile Details</h3>
         <p> Name: <%= @profile.first_name %></p>
         <p> Surname: <%= @profile.last_name %></p>
         <p> Usename: <%= @profile.username %><p>
@@ -14,14 +14,14 @@
       <% if @profile.mentor == true %>
       <%# Mentor %>
       <div>
-      <h3 class="pb-3">Carrer and education</h3>
+      <h3 class="py-3">Carrer and education</h3>
       <p> Industry: <%= @profile.mentor_industry%>
       <p> Latest role: <%= @profile.position%><p>
       <p> Special skills: <%= @profile.mentor_skills%><p>
       <p> About me: <%= @profile.bio %><p>
     </div>
     <div>
-      <h3 class="pb-3">Match Preferences</h3>
+      <h3 class="py-3">Match Preferences</h3>
       <p> Mentee's highest degree: <%= @profile.highest_education%><p>
       <p> Mentee's industry: <%= @profile.target_industry%><p>
       <p> Region: <%= @profile.proximity_preference%><p>
@@ -32,7 +32,7 @@
     <% else %>
       <%# Mentee %>
       <div>
-      <h3 class="pb-3">Carrer and education</h3>
+      <h3 class="py-3">Carrer and education</h3>
       <p> Highest degree: <%= @profile.highest_education%></p>
       <p> School/University: <%= @profile.edu_organization%><p>
       <p> Working experience: <%= @profile.working_experience %><p>
@@ -40,7 +40,7 @@
       <p> About me: <%= @profile.bio %><p>
     </div>
     <div>
-      <h3 class="pb-3">Match Preferences</h3>
+      <h3 class="py-3">Match Preferences</h3>
       <p> Target Industry: <%= @profile.target_industry%><p>
       <p> Meeting language: <%= @profile.preferred_language%><p>
       <p> Type of meeting: <%= @profile.type_of_meeting%><p>

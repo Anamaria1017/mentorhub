@@ -1,5 +1,7 @@
 <div class="container col-8">
-  <h1 class ="t-2">Edit my profile</h1>
+  <div class="py-3">
+  <h1>Edit my profile</h1>
+  </div>
   <br>
   <div>
     <%= simple_form_for(@profile) do |f| %>
@@ -20,37 +22,41 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12,
+      <%= f.input :birthday, as: :date, start_year: Date.today.year - 17,
+                              end_year: Date.today.year - 90,
                               order: [:day, :month, :year] %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :languages %>
+      <%# drop down menu with list of languages, more than one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :city %>
+      <%# drop down menu with list of cities, only one can be selected, Api? %>
     </div>
 
-    <h2>Match Preferences</h2>
+    <h2 class="py-3">Match Preferences</h2>
 
     <% if @profile.mentor == false %>
 
     <div class="form-inputs">
-      <%= f.input :highest_education %>
+      <%= f.input :highest_education, collection: [ "High School", "Bachelor", "Master", "PhD"]%>
     </div>
 
     <div class="form-inputs">
       <%= f.input :edu_organization %>
+      <%# drop down menu with list of unis, only one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :working_experience %>
+      <%= f.input :working_experience,  collection: [ "< 1 year", "1-2 years", "2-3 years", "4-5 years", "> 5 years"] %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :position %>
+      <%# drop down menu with list of positions, only one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
@@ -59,32 +65,37 @@
 
     <div class="form-inputs">
       <%= f.input :target_industry %>
+      <%# drop down menu with list of industries, more than one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :preferred_language %>
+      <%# drop down menu with list of languages, only one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :type_of_meeting %>
+      <%= f.input :type_of_meeting, collection: [ "Only online", "Only in person", "No preference"] %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :proximity_preference %>
+      <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :mentor_skills %>
+      <%# drop down menu with list of skilss, only one can be selected, Api? %>
     </div>
 
     <% else %>
 
     <div class="form-inputs">
       <%= f.input :mentor_industry %>
+      <%# drop down menu with list of industries, more than one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
       <%= f.input :position %>
+      <%# drop down menu with list of positions, only one can be selected, Api? %>
     </div>
 
     <div class="form-inputs">
@@ -96,7 +107,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :highest_education %>
+      <%= f.input :highest_education, collection: [ "High School", "Bachelor", "Master", "PhD"]%>
     </div>
 
     <div class="form-inputs">
@@ -104,7 +115,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :working_experience %>
+      <%= f.input :working_experience,  collection: [ "< 1 year", "1-2 years", "2-3 years", "4-5 years", "> 5 years"] %>
     </div>
 
     <div class="form-inputs">
@@ -112,11 +123,11 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :type_of_meeting %>
+      <%= f.input :type_of_meeting, collection: [ "Only online", "Only in person", "No preference"] %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :proximity_preference %>
+      <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
     </div>
 
     <% end %>
