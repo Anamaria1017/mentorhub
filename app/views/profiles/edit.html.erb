@@ -1,5 +1,5 @@
 <div class="container col-8">
-  <h1 class ="t-2" style= "font-family: 'Crimson Text', serif;">Edit my profile</h1>
+  <h1 class ="t-2">Edit my profile</h1>
   <br>
   <div>
     <%= simple_form_for(@profile) do |f| %>
@@ -20,7 +20,9 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :birthday %>
+      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12,
+                              order: [:day, :month, :year] %>
     </div>
 
     <div class="form-inputs">
