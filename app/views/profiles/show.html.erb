@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <h1> My Profile</h1>
+    <div>
+      <div>
+        <h3 class="pb-3">Profile Details</h3>
+        <p> Name: <%= @profile.first_name %></p>
+        <p> Surname: <%= @profile.last_name %></p>
+        <p> Usename: <%= @profile.user_name %><p>
+        <p> Role: <%= @profile.role %><p>
+        <p> City: <%= @profile.city %><p>
+        <p> Birthday: <%= @profile.birthday %><p>
+        <p> Languages: <%= @profile.languages%><p>
+      </div>
+      <div>
+        <h3 class="pb-3">Match Preferences</h3>
+        <p> Highest degree: <%= @profile.highest_education%></p>
+        <p> School/University: <%= @profile.edu_organization%><p>
+        <p> Working experience: <%= @profile.working_experience %><p>
+        <p> City: <%= @profile.current_position%><p>
+        <p> About mw: <%= @profile.bio %><p>
+        <p> Target Industry: <%= @profile.target_industry%><p>
+        <p> Prefered Language: <%= @profile.preferred_language%><p>
+      </div>
+  </div>
+</div>
