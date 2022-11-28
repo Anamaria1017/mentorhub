@@ -47,6 +47,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_161834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "user_name"
+    t.boolean "role"
+    t.date "birthday"
+    t.string "languages"
+    t.string "city"
+    t.string "highest_education"
+    t.string "edu_organization"
+    t.string "working_experience"
+    t.string "current_position"
+    t.text "bio"
+    t.string "target_industry"
+    t.string "preferred_language"
+    t.string "type_of_meeting"
+    t.string "proximity_preference"
+    t.string "mentor_skills"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_161834) do
   add_foreign_key "chatrooms", "matches"
   add_foreign_key "meetings", "matches"
   add_foreign_key "messages", "chatrooms"
+
+  add_foreign_key "profiles", "users"
 end
