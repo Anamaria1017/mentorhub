@@ -9,11 +9,38 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    if @profile.update(profile_params)
-      redirect_to @profile, notice: "Profile was successfully updated."
+    if @profile.mentor && @profile.update(profile_params)
+
+      find_mentees
+
+    elsif @profile.mentor == false && @profile.update(profile_params)
+
+      find_mentors
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def find_mentees
+    @profile = Profile.find(params[:id])
+    matching_profiles = Profile.where(target_industry: @profile.target_industry, city: @profile.city, mentor: false)
+    @matches = []
+    matching_profiles.each do |profile|
+      match = Match.create(mentee_id: profile.id, mentor_id: @profile.id)
+      @matches << match
+    end
+    redirect_to profile_path(@profile), notice: "Profile was successfully updated. You might have new matches"
+  end
+
+  def find_mentors
+    @profile = Profile.find(params[:id])
+    matching_profiles = Profile.where(target_industry: @profile.target_industry, city: @profile.city, mentor: true)
+    @matches = []
+    matching_profiles.each do |profile|
+        match = Match.create(mentor_id: profile.id, mentee_id: @profile.id)
+        @matches << match
+    end
+    redirect_to profile_path(@profile), notice: "Profile was successfully updated. You might have new matches"
   end
 
   private
