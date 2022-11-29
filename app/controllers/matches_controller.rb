@@ -2,6 +2,8 @@ class MatchesController < ApplicationController
   before_action :set_match, only: %i[show update]
 
   def index
+      @profile = Profile.find_by(user: current_user)
+      @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id))
   end
 
   def show

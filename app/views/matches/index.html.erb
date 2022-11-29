@@ -1,0 +1,23 @@
+<div class="container col-8">
+  <div class="p-3">
+    <h1> My Matches</h1>
+    <% @matches.each do |match| %>
+      <% if @profile.mentor == false %>
+      <%# Mentee %>
+      <p><%= match.mentor.first_name %></p>
+      <p><%= match.mentor.last_name %></p>
+      <p><%= match.mentor.city %></p>
+      <p><%= match.mentor.languages %></p>
+      <p><%= match.mentor.working_experience %></p>
+      <p><%= match.mentor.position %></p>
+      <% else %>
+      <%# Mentor %>
+      <%= match.mentee.first_name %>
+      <p><%= match.mentee.city %></p>
+      <p><%= match.mentee.languages %></p>
+      <p><%= match.mentee.working_experience %></p>
+      <p><%= match.mentee.position %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
