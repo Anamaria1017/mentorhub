@@ -20,3 +20,9 @@ puts "Creating mentor"
 user_2 = User.create!(email: "ulrich@hotmail.com", password: "Pedro1234")
 
 mentor = Profile.create!(first_name: "Ulrich", last_name: "Meister", username: "Uli", mentor: true, position: "Managing Principal", city: "Berlin", highest_education: "Master", target_industry: "Consulting", preferred_language: "Spanish", type_of_meeting: "online", user: user_2)
+
+match_1 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id)
+
+puts "Creating match!"
+
+chatroom_1 = Chatroom.create!(match_id: match_1.id)
