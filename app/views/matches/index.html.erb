@@ -1,23 +1,28 @@
 <div class="container col-8">
-  <div class="p-3">
-    <h1> My Matches</h1>
-    <% @matches.each do |match| %>
-      <% if @profile.mentor == false %>
-      <%# Mentee %>
-      <p><%= match.mentor.first_name %></p>
-      <p><%= match.mentor.last_name %></p>
-      <p><%= match.mentor.city %></p>
-      <p><%= match.mentor.languages %></p>
-      <p><%= match.mentor.working_experience %></p>
-      <p><%= match.mentor.position %></p>
-      <% else %>
+<h1> My Matches</h1>
+  <div>
+    <div>
+      <% @matches.each do |match| %>
+        <% if @profile.mentor == false %>
+        <%# Mentee %>
+        <p>Name: <%= match.mentor.first_name %></p>
+        <p>Surname: <%= match.mentor.last_name %></p>
+        <p>City: <%= match.mentor.city %></p>
+        <p>Languages: <%= match.mentor.languages %></p>
+        <p>Working experience: <%= match.mentor.working_experience %></p>
+        <p>Last role: <%= match.mentor.position %></p>
+        <% else %>
+    </div>
       <%# Mentor %>
-      <%= match.mentee.first_name %>
-      <p><%= match.mentee.city %></p>
-      <p><%= match.mentee.languages %></p>
-      <p><%= match.mentee.working_experience %></p>
-      <p><%= match.mentee.position %></p>
+    <div>
+      <p>Name: <%= match.mentee.first_name %></p>
+      <p>Surname: <%= match.mentee.last_name %></p>
+      <p>City: <%= match.mentee.city %></p>
+      <p>Languages:<%= match.mentee.languages %></p>
+      <p>Industry: <%= match.mentee.target_industry %></p>
+      <p>Last role: <%= match.mentee.position %></p>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>
