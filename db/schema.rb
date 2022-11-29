@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_105050) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_143137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,7 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_105050) do
     t.bigint "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id", null: false
     t.index ["match_id"], name: "index_meetings_on_match_id"
+    t.index ["profile_id"], name: "index_meetings_on_profile_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_105050) do
 
   add_foreign_key "chatrooms", "matches"
   add_foreign_key "meetings", "matches"
+  add_foreign_key "meetings", "profiles"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
