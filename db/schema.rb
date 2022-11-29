@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_161834) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_105050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,20 +46,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_161834) do
     t.bigint "chatroom_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["profile_id"], name: "index_messages_on_profile_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "user_name"
-    t.boolean "role"
+    t.string "username"
+    t.boolean "mentor"
     t.date "birthday"
     t.string "languages"
     t.string "city"
     t.string "highest_education"
     t.string "edu_organization"
     t.string "working_experience"
-    t.string "current_position"
+    t.string "position"
     t.text "bio"
     t.string "target_industry"
     t.string "preferred_language"
@@ -87,6 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_161834) do
   add_foreign_key "chatrooms", "matches"
   add_foreign_key "meetings", "matches"
   add_foreign_key "messages", "chatrooms"
-
+  add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
 end
