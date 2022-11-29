@@ -15,7 +15,7 @@
       <%# Mentor %>
       <div>
       <h3 class="py-3">Carrer and education</h3>
-      <p> Industry: <%= @profile.mentor_industry%>
+      <p> Industry: <%= @profile.target_industry%>
       <p> Latest role: <%= @profile.position%><p>
       <p> Special skills: <%= @profile.mentor_skills%><p>
       <p> About me: <%= @profile.bio %><p>
@@ -23,7 +23,6 @@
     <div>
       <h3 class="py-3">Match Preferences</h3>
       <p> Mentee's highest degree: <%= @profile.highest_education%><p>
-      <p> Mentee's industry: <%= @profile.target_industry%><p>
       <p> Region: <%= @profile.proximity_preference%><p>
       <p> Type of meeting: <%= @profile.type_of_meeting%><p>
       <p> Meeting language: <%= @profile.preferred_language%><p>

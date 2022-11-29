@@ -28,13 +28,11 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :languages %>
-      <%# drop down menu with list of languages, more than one can be selected, Api? %>
+      <%= f.input :languages, collection: [ "English", "German", "Spanish"]%>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :city %>
-      <%# drop down menu with list of cities, only one can be selected, Api? %>
+      <%= f.input :city, collection: [ "Berlin", "Frankfurt", "Hamburg", "München"]%>
     </div>
 
     <h2 class="py-3">Match Preferences</h2>
@@ -46,8 +44,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :edu_organization %>
-      <%# drop down menu with list of unis, only one can be selected, Api? %>
+      <%= f.input :edu_organization,  collection: [ "Goethe University", "ESMT", "Berlin TU"] %>
     </div>
 
     <div class="form-inputs">
@@ -55,8 +52,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :position %>
-      <%# drop down menu with list of positions, only one can be selected, Api? %>
+      <%= f.input :position,  collection: [ "Associate", "Consultant", "Senior Consultant", "Managing Principal", "Partner"] %>
     </div>
 
     <div class="form-inputs">
@@ -64,13 +60,11 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :target_industry %>
-      <%# drop down menu with list of industries, more than one can be selected, Api? %>
+      <%= f.input :target_industry, collection: [ "Financial Services", "Education", "Consumer Goods", "Public Sector", "Health"] %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :preferred_language %>
-      <%# drop down menu with list of languages, only one can be selected, Api? %>
+      <%= f.input :preferred_language, collection: [ "English", "German", "Spanish"]%>
     </div>
 
     <div class="form-inputs">
@@ -82,20 +76,17 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :mentor_skills %>
-      <%# drop down menu with list of skilss, only one can be selected, Api? %>
+      <%= f.input :mentor_skills, collection: [ "Agile", "Cloud", "PSD2"]%>
     </div>
 
     <% else %>
 
     <div class="form-inputs">
-      <%= f.input :mentor_industry %>
-      <%# drop down menu with list of industries, more than one can be selected, Api? %>
+      <%= f.input :target_industry, collection: [ "Financial Services", "Education", "Consumer Goods", "Public Sector", "Health"] %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :position %>
-      <%# drop down menu with list of positions, only one can be selected, Api? %>
+      <%= f.input :position, collection: [ "Associate", "Consultant", "Senior Consultant", "Managing Principal", "Partner"] %>
     </div>
 
     <div class="form-inputs">
@@ -111,7 +102,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :target_industry %>
+      <%= f.input :target_industry, collection: [ "Financial Services", "Education", "Consumer Goods", "Public Sector", "Health"] %>
     </div>
 
     <div class="form-inputs">
