@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @profile = Profile.new(user: current_user)
+      @profile = Profile.new(user: current_user)
   end
 
   def create

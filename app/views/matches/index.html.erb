@@ -27,15 +27,19 @@
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>
-              <%= link_to match_path(match) do %>
-                <i class="fa-regular fa-envelope"></i>
-              <% end %>
+              <div>
+                <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-envelope"></i>
+                <% end %>
+                <%= link_to "#" do %>
+                  <i class="fa-regular fa-envelope"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
     </div>
-      <!-- <%= link_to "Chat", post_chatroom_path(@chatroom), class:"btn btn-outline-dark"%> -->
   </div>
 </div>
