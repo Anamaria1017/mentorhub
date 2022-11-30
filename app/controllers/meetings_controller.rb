@@ -3,8 +3,9 @@ class MeetingsController < ApplicationController
 
   def index
     # find the right user
-    @meeting.profile = current_user.profiles.first
-    @meeting = Metting.where(profile_id: current_user)
+    @meeting.profile = current_user
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Meeting.where(profile_id: current_user).where(starts_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
@@ -18,7 +19,7 @@ class MeetingsController < ApplicationController
     @meeting.match = @match
     # assign meeting to right user
     @meeting.profile = current_user
-    if @metting.save
+    if @meeting.save
       redirect_to meetings_path
     else
       render :new, status: :unprocessable_entity
@@ -48,6 +49,6 @@ class MeetingsController < ApplicationController
   end
 
   def meeting_params
-    params.require(:meeting).permit(:date, :time, :subject, :location, :status)
+    params.require(:meeting).permit(:start_time, :end_time, :name, :location, :status)
   end
 end
