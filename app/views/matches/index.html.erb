@@ -12,7 +12,7 @@
             <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
-            <%= link_to match_path(match) do %>
+            <%= link_to new_match_meeting_path(match) do %>
                 <i class="fa-regular fa-envelope"></i>
             <% end %>
           </div>
@@ -27,7 +27,7 @@
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>
-              <%= link_to match_path(match) do %>
+              <%= link_to new_match_meeting_path(match) do %>
                 <i class="fa-regular fa-envelope"></i>
               <% end %>
             </div>
