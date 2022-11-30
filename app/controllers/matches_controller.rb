@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find_by(user: current_user)
   end
 
   def update

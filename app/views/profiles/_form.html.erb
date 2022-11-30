@@ -1,0 +1,170 @@
+<div class="container col-8">
+  <div class="py-3">
+  <h1>Edit my profile</h1>
+  </div>
+  <br>
+  <div>
+    <%= simple_form_for(@profile) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <% if @profile.mentor == false %>
+        <h2>General information</h2>
+
+        <div class="form-inputs">
+          <%= f.input :first_name, label: 'Name' %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :last_name, label: 'Surname' %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :username%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 17,
+                                  end_year: Date.today.year - 90,
+                                  order: [:day, :month, :year] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :languages, collection: [ "English", "German", "Spanish"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :city, collection: [ "Berlin", "Frankfurt", "Hamburg", "München"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :highest_education, collection: [ "High School", "Bachelor", "Master", "PhD"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :edu_organization,  collection: [ "Goethe University", "ESMT", "Berlin TU"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :working_experience,  collection: [ "< 1 year", "1-2 years", "2-3 years", "4-5 years", "> 5 years"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :position,  collection: [ "Associate", "Consultant", "Senior Consultant", "Managing Principal", "Partner"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :bio %>
+        </div>
+
+        <h2 class="py-3">Match Preferences</h2>
+
+        <div class="form-inputs">
+          <%= f.input :target_industry, collection: [ "Consulting", "Education", "Consumer Goods", "Public Sector", "Health"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :mentor_skills, collection: [ "Agile", "Cloud", "PSD2"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :preferred_language, collection: [ "English", "German", "Spanish"], label: "Meeting language"%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :type_of_meeting, collection: [ "Only online", "Only in person", "No preference"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
+        </div>
+
+      <% else %>
+
+        <h2>General information</h2>
+
+        <div class="form-inputs">
+          <%= f.input :first_name, label: 'Name' %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :last_name, label: 'Surname' %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :username%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 17,
+                                  end_year: Date.today.year - 90,
+                                  order: [:day, :month, :year] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :languages, collection: [ "English", "German", "Spanish"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :city, collection: [ "Berlin", "Frankfurt", "Hamburg", "München"]%>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :highest_education, collection: [ "High School", "Bachelor", "Master", "PhD"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :position, label: "Last role", collection: [ "Associate", "Consultant", "Senior Consultant", "Managing Principal", "Partner"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :mentor_skills, label: "My skills" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :bio %>
+        </div>
+
+        <h2 class="py-3">Match Preferences</h2>
+
+        <div class="form-inputs">
+          <%= f.input :target_industry, collection: [ "Consulting", "Education", "Consumer Goods", "Public Sector", "Health"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :working_experience,  collection: [ "< 1 year", "1-2 years", "2-3 years", "4-5 years", "> 5 years"], label: "Mentee's working experiece" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :preferred_language, label: "Meeting language", collection: [ "English", "German", "Spanish"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :type_of_meeting, collection: [ "Only online", "Only in person", "No preference"] %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
+        </div>
+
+      <% end %>
+
+        <div class="form-inputs">
+          <%= f.input :photo, as: :file %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit , class: "btn btn-outline-dark" %>
+        </div>
+    <% end %>
+
+    <br>
+
+    <div>
+      <% if @profile.persisted? %>
+        <%= link_to "Back", profile_path(@profile), class:"btn btn-outline-dark" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+ 

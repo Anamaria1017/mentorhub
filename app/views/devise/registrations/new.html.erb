@@ -17,6 +17,7 @@ data: {turbo: false})  do |f| %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :mentor, as: :hidden, input_html: { value: params[:mentor] } %>
   </div>
 
   <div class="form-actions">
