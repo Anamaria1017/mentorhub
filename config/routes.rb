@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[show edit update]
   resources :matches, only: %i[index show update]
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[show new create] do
     resources :messages, only: %i[create]
+    root to: 'chatrooms#index'
   end
   resources :meetings, only: %i[index new create update]
   # resources :likes, only: %i[update destroy]
