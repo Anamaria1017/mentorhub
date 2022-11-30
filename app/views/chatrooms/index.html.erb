@@ -1,0 +1,9 @@
+<div class="container col-8">
+<h1> My Messages</h1>
+   <div>
+      <% @chatrooms.each do |chatroom| %>
+        <p> <%= chatroom.match_id %></p>
+
+        <% end %>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
 data: {turbo: false})  do |f| %>
@@ -25,3 +26,5 @@ data: {turbo: false})  do |f| %>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
