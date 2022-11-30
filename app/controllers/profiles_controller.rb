@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
   end
 
   def find_mentees
-    matching_profiles = Profile.joins(:user).where(profiles: {target_industry: @profile.target_industry, city: @profile.city}, users: {mentor: false})
+    matching_profiles = Profile.joins(:user).where(profiles: { target_industry: @profile.target_industry, city: @profile.city }, users: { mentor: false })
     @matches = []
     matching_profiles.each do |profile|
       match = Match.create(mentee_id: profile.id, mentor_id: @profile.id)

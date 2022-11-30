@@ -1,4 +1,4 @@
-<div class="container col-8">
+<div class="container">
 <h1> My Matches</h1>
   <div class="cards">
 
@@ -12,9 +12,17 @@
             <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
-            <%= link_to match_path(match) do %>
-                <i class="fa-regular fa-envelope"></i>
+            <%= link_to "#" do %>
+                  <i class="fa-solid fa-user-xmark"></i>
             <% end %>
+            <div class="card-btn">
+              <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-envelope"></i>
+              <% end %>
+              <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-heart"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% else %>
@@ -27,12 +35,15 @@
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>
-              <div>
+              <%= link_to "#" do %>
+                  <i class="fa-solid fa-user-xmark"></i>
+                <% end %>
+              <div class="card-btn">
                 <%= link_to match_path(match) do %>
                   <i class="fa-regular fa-envelope"></i>
                 <% end %>
-                <%= link_to "#" do %>
-                  <i class="fa-regular fa-envelope"></i>
+                <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-heart"></i>
                 <% end %>
               </div>
             </div>
