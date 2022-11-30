@@ -5,6 +5,18 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatroom = Chatroom.all
+    @chatrooms = Chatroom.all
+  end
+
+  def create
+    @chatroom = Chatroom.new
+
+    @chatroom.match = @match
+    # assign meeting to right user
+    if @chatroom.save
+      redirect_to chatrooms_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end
