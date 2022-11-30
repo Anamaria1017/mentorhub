@@ -154,7 +154,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit , class: "btn btn-outline-dark" %>
+          <%= f.button :submit , class: "purple-button" %>
         </div>
     <% end %>
 
@@ -162,9 +162,8 @@
 
     <div>
       <% if @profile.persisted? %>
-        <%= link_to "Back", profile_path(@profile), class:"btn btn-outline-dark" %>
+        <%= link_to "Back", profile_path(@profile), class: "purple-button" %>
       <% end %>
     </div>
   </div>
 </div>
- 

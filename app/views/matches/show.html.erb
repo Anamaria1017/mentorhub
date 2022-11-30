@@ -34,6 +34,9 @@
             <% unless @match.mentee.preferred_language.blank? %><p>Preffered Meeting Language: <%= @match.mentee.preferred_language%></p><% end %>
           <% end %>
         </div>
+        <div class="show-card-btn">
+          <%= link_to "Back", matches_path, class: "purple-button" %>
+        </div>
       </div>
   </div>
 </div>
