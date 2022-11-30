@@ -4,11 +4,11 @@
       <%# I am a Mentee and should see Mentors %>
       <div class="card-match">
         <h3><%= @match.mentor.first_name %> <%= @match.mentor.last_name %></h3>
-          <% unless @match.mentor.birthday.blank? %><p>Birthday: <%= @match.mentor.birthday%></p><% end %>
-          <h5><%= @match.mentor.city %></h5>
         <div class="card-match-info">
           <p>Industry: <%= @match.mentor.target_industry %></p>
           <% unless @match.mentee.mentor_skills.blank? %><p>My skills: <%= @match.mentee.mentor_skills%></p><% end %>
+          <% unless @match.mentor.birthday.blank? %><p>Birthday: <%= @match.mentor.birthday%></p><% end %>
+          <h5><%= @match.mentor.city %></h5>
           <% unless @match.mentor.highest_education.blank? %><p>Highest education title: <%= @match.mentor.highest_education %></p><% end %>
           <% unless @match.mentor.edu_organization.blank? %><p>School/University: <%= @match.mentor.edu_organization%></p><% end %>
           <% unless @match.mentor.position.blank? %><p>Last role: <%= @match.mentor.position %></p><% end %>
@@ -22,18 +22,18 @@
     <%# I am Mentor and should see Mentees %>
       <div class="card-match">
         <h3><%= @match.mentee.first_name %> <%= @match.mentee.last_name %></h3>
-          <% unless @match.mentee.birthday.blank?%><p>Birthday: <%= @match.mentee.birthday%></p><% end %>
         <h5><%= @match.mentee.city %></h5>
         <div class="card-match-info">
-          <p>Industry: <%= @match.mentee.target_industry %></p>
-          <% unless @match.mentee.highest_education.blank? %><p>Highest education title: <%= @match.mentee.highest_education %></p><% end %>
-          <% unless @match.mentee.edu_organization.blank? %><p>School/University: <%= @match.mentee.edu_organization%></p><% end %>
-          <% unless @match.mentee.working_experience.blank? %><p>Working experience: <%= @match.mentee.working_experience %></p><% end %>
-          <% unless @match.mentee.position.blank? %><p>Current role: <%= @match.mentee.position %></p><% end %>
-          <% unless @match.mentee.languages.blank? %><p>Languages:<%= @match.mentee.languages %></p><% end %>
-          <% unless @match.mentee.preferred_language.blank? %><p>Preffered Meeting Language: <%= @match.mentee.preferred_language%></p><% end %>
-        <% end %>
-      <div>
+            <p>Industry: <%= @match.mentee.target_industry %></p>
+            <% unless @match.mentee.birthday.blank?%><p>Birthday: <%= @match.mentee.birthday%></p><% end %>
+            <% unless @match.mentee.highest_education.blank? %><p>Highest education title: <%= @match.mentee.highest_education %></p><% end %>
+            <% unless @match.mentee.edu_organization.blank? %><p>School/University: <%= @match.mentee.edu_organization%></p><% end %>
+            <% unless @match.mentee.working_experience.blank? %><p>Working experience: <%= @match.mentee.working_experience %></p><% end %>
+            <% unless @match.mentee.position.blank? %><p>Current role: <%= @match.mentee.position %></p><% end %>
+            <% unless @match.mentee.languages.blank? %><p>Languages:<%= @match.mentee.languages %></p><% end %>
+            <% unless @match.mentee.preferred_language.blank? %><p>Preffered Meeting Language: <%= @match.mentee.preferred_language%></p><% end %>
+          <% end %>
+        </div>
       </div>
   </div>
 </div>

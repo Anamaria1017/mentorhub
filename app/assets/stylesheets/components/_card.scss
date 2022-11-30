@@ -76,12 +76,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 30px;
 }
 
 .card-match {
   width: 700px;
+  height: auto;
   border-radius: 8px;
-  height: 400px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
