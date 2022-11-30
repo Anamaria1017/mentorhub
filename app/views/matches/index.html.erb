@@ -1,26 +1,38 @@
 <div class="container col-8">
 <h1> My Matches</h1>
-  <div>
-    <div>
-      <% @matches.each do |match| %>
-        <% if @profile.mentor == false %>
-        <%# Mentee %>
-        <p>Name: <%= match.mentor.first_name %></p>
-        <p>Surname: <%= match.mentor.last_name %></p>
-        <p>City: <%= match.mentor.city %></p>
-        <p>Languages: <%= match.mentor.languages %></p>
-        <p>Working experience: <%= match.mentor.working_experience %></p>
-        <p>Last role: <%= match.mentor.position %></p>
-        <% else %>
-    </div>
-      <%# Mentor %>
-    <div>
-      <p>Name: <%= match.mentee.first_name %></p>
-      <p>Surname: <%= match.mentee.last_name %></p>
-      <p>City: <%= match.mentee.city %></p>
-      <p>Languages:<%= match.mentee.languages %></p>
-      <p>Industry: <%= match.mentee.target_industry %></p>
-      <p>Last role: <%= match.mentee.position %></p>
+  <div class="cards">
+
+    <% @matches.each do |match| %>
+      <% if @profile.mentor == false %>
+        <%# I am a Mentee and should see Mentors %>
+        <div class="card">
+          <%= link_to '', match_path(match), class: 'card-link' %>
+          <div class="card-infos">
+            <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
+            <p>City: <%= match.mentor.city %></p>
+            <p>Last role: <%= match.mentor.position %></p>
+            <p>Industry: <%= match.mentor.target_industry %></p>
+            <%= link_to match_path(match) do %>
+                <i class="fa-regular fa-envelope"></i>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <%# I am Mentor and should see Mentees %>
+        <div class="card">
+          <div class="card-infos">
+            <%= link_to '', match_path(match), class: 'card-link' %>
+            <div class="card-infos">
+              <h3><%= link_to match.mentee.first_name, match_path(match) %></h3>
+              <p>City: <%= match.mentee.city %></p>
+              <p>Last role: <%= match.mentee.position %></p>
+              <p>Industry: <%= match.mentee.target_industry %></p>
+              <%= link_to match_path(match) do %>
+                <i class="fa-regular fa-envelope"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
     </div>

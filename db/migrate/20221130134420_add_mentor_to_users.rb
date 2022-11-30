@@ -1,0 +1,6 @@
+class AddMentorToUsers < ActiveRecord::Migration[7.0]
+  def change
+    add_column :users, :mentor, :boolean
+    remove_column :profiles, :mentor
+  end
+end

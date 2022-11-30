@@ -5,5 +5,6 @@ class Profile < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :meetings, dependent: :destroy
   validates :first_name, :last_name, :username, :city, :target_industry, presence: true
+  delegate :mentor, to: :user
   # I had to remove mentor to be able to create mock data, why?
 end
