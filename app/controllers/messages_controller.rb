@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     @chatroom = Chatroom.find(params[:chatroom_id])
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
-    @message.user = current_user
+    @message.profile = current_user.profiles.first
     if @message.save
       redirect_to chatroom_path(@chatroom)
     else
