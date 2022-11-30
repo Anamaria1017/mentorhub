@@ -1,11 +1,11 @@
 class MeetingsController < ApplicationController
-  before_action :set_match, only: %i[new create]
+  # before_action :set_match, only: %i[new create]
 
   def index
     # find the right user
-    @meeting.profile = current_user
+    # @meeting.profile = current_user.profile
     start_date = params.fetch(:start_date, Date.today).to_date
-    @meetings = Meeting.where(profile_id: current_user).where(starts_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @meetings = Meeting.where(profile_id: current_user.profile.id).where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
@@ -16,9 +16,9 @@ class MeetingsController < ApplicationController
   def create
     # @match = Match.find(params[:match_id])
     @meeting = Meeting.new(meeting_params)
-    @meeting.match = @match
+    # @meeting.match = @match
     # assign meeting to right user
-    @meeting.profile = current_user
+    @meeting.profile = current_user.profile
     if @meeting.save
       redirect_to meetings_path
     else
@@ -44,11 +44,11 @@ class MeetingsController < ApplicationController
 
   private
 
-  def set_match
-    @match = Match.find(params[:match_id])
-  end
+  # def set_match
+    # @match = Match.find(params[:match_id])
+  # end
 
   def meeting_params
-    params.require(:meeting).permit(:start_time, :end_time, :name, :location, :status)
+    params.require(:meeting).permit(:start_time, :end_time, :name, :location, :status, :match_id)
   end
 end
