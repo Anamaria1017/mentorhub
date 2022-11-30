@@ -1,11 +1,17 @@
 .purple-button {
   background-color: #C8B6FF;
   border: none;
-  color: rgb(41, 40, 40);
+  color: rgb(53, 51, 51);
   padding: 9px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border-radius: 5px;
+}
+
+.purple-button:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #aa91f7;;
 }
