@@ -43,6 +43,4 @@ puts "Creating match!"
 
 chatroom_1 = Chatroom.create!(match_id: match_1.id)
 
-meeting_1 = Meeting.create!(match_id: match_1.id, start_time: "2022-12-05T15:00", end_time: "2022-12-05T16:00", name: "Kickoff", location: "Zoom")
-
 puts "Creating meeting!"
