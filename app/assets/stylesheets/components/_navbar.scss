@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #794FFA;
-  height: 96px;
+  background: #794ffa;
+  height: 100px;
+  color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,9 +24,19 @@
   flex-grow: 0;
 }
 
+.navbar {
+  .nav-link,
+  .navbar-brand {
+    color: white !important;
+  }
+  .dropdown-item {
+    color: black !important;
+  }
+}
+
 .navbar .avatar {
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: #b07eff
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
 }
