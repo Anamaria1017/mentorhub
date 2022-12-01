@@ -2,11 +2,20 @@
   <div class="row">
     <div class="col-4">
         <h1> My Messages</h1>
+        <% if current_user.mentor?  %>
         <ul>
           <% @chatrooms.each do |chatroom| %>
-          <li> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
-        <% end %>
+            <li> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
+          <% end %>
         </ul>
+
+        <% else %>
+        <ul>
+          <% @chatrooms.each do |chatroom| %>
+            <li> <%= link_to chatroom.match.mentor.first_name, chatrooms_path(chat: chatroom.id) %> </li>
+          <% end %>
+        </ul>
+        <% end %>
 
     </div>
     <div class="container chatroom col-8" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
