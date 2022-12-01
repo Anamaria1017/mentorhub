@@ -3,7 +3,7 @@
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= meeting.name %>
+      <%= link_to meeting.name, meeting %>
       <%= meeting.start_time %>
       <%= meeting.end_time %>
       <%= meeting.location %>

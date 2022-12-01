@@ -1,22 +1,24 @@
 class MeetingsController < ApplicationController
-  # before_action :set_match, only: %i[new create]
+  before_action :set_match, only: %i[new create]
 
   def index
     # find the right user
     # @meeting.profile = current_user.profile
     start_date = params.fetch(:start_date, Date.today).to_date
-    @meetings = Meeting.where(profile_id: current_user.profile.id).where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @meetings = Meeting.joins(:match).where(matches: { mentor_id: current_user.profile.id })
+                       .or(Meeting.joins(:match).where(matches: { mentee_id: current_user.profile.id }))
+                       .where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
-    # @match = Match.find(params[:match_id])
+    @match = Match.find(params[:match_id])
     @meeting = Meeting.new
   end
 
   def create
-    # @match = Match.find(params[:match_id])
+    @match = Match.find(params[:match_id])
     @meeting = Meeting.new(meeting_params)
-    # @meeting.match = @match
+    @meeting.match = @match
     # assign meeting to right user
     @meeting.profile = current_user.profile
     if @meeting.save
@@ -26,29 +28,33 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
+
   def update
     @meeting = Meeting.find(params[:id])
-    # @meeting.update(meeting_params)
+    #@meeting.update(meeting_params)
     if params[:status] == "1"
       # @Meeting.accepted!
       @meeting.update!(status: 1)
       flash[:success] = "Meeting was accepted"
-      redirect_to meeting_path
+      redirect_to meeting_path(@meeting)
     elsif params[:status] == "2"
       # @meeting.declined!
       @meeting.update!(status: 2)
       flash[:error] = "Meeting was declined"
-      redirect_to meeting_path
+      redirect_to meeting_path(@meeting)
     end
   end
 
   private
 
-  # def set_match
-    # @match = Match.find(params[:match_id])
-  # end
+  def set_match
+    @match = Match.find(params[:match_id])
+  end
 
   def meeting_params
-    params.require(:meeting).permit(:start_time, :end_time, :name, :location, :status, :match_id)
+    params.require(:meeting).permit(:start_time, :end_time, :name, :location)
   end
 end

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :messages, only: %i[create]
   end
 
-  resources :meetings, only: %i[index update]
+  resources :meetings, only: %i[index show update]
 
   namespace :user do
     root to: "profiles#new"
