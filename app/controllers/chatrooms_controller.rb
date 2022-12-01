@@ -6,11 +6,12 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
+    @chatroom = Chatroom.find(params[:chat])
+    @message = Message.new
   end
 
   def create
     @chatroom = Chatroom.new
-
     @chatroom.match = @match
     # assign meeting to right user
     if @chatroom.save
