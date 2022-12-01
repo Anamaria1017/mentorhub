@@ -12,6 +12,7 @@
             <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
+            <button class="purple-button">Meeting invitation</button>
             <%= link_to "#" do %>
                   <i class="fa-solid fa-user-xmark"></i>
             <% end %>
@@ -35,11 +36,12 @@
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>
+              <button class="purple-button">Meeting invitation</button>
               <%= link_to "#" do %>
                   <i class="fa-solid fa-user-xmark"></i>
                 <% end %>
               <div class="card-btn">
-                <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                <%= link_to chatrooms_path(chat: match.chatroom.id) do %>
                   <i class="fa-regular fa-envelope"></i>
                 <% end %>
                 <%= link_to match_path(match) do %>
