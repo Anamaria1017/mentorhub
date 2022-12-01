@@ -4,4 +4,10 @@ class Match < ApplicationRecord
   validates :mentor_id, uniqueness: { scope: :mentee_id, message: "Is already in the matches list" }
   has_many :meetings, dependent: :destroy
   has_one :chatroom
+
+  after_create :create_chatroom_for_match
+
+  def create_chatroom_for_match
+    Chatroom.create(match_id: id)
+  end
 end
