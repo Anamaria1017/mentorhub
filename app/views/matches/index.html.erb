@@ -14,6 +14,7 @@
             <p>Industry: <%= match.mentor.target_industry %></p>
             <%= link_to "#" do %>
                   <i class="fa-solid fa-user-xmark"></i>
+            <% end %>
             <%= link_to new_match_meeting_path(match) do %>
                 <i class="fa-regular fa-envelope"></i>
             <% end %>
