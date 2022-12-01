@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :profiles, only: %i[new create show edit update]
-  resources :matches, only: %i[index show update]
 
-  resources :chatrooms, only: %i[show new create] do
-    resources :messages, only: %i[create]
-    root to: 'chatrooms#index'
+  resources :matches, only: %i[index show update] do
+    resources :meetings, only: %i[new create]
+    resources :chatrooms, only: %i[new create]
   end
-  resources :meetings, only: %i[index new create update]
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: %i[create]
+  end
+
+  resources :meetings, only: %i[index update]
 
   namespace :user do
     root to: "profiles#new"
