@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show update]
+  before_action :authenticate_user!
 
   def index
       @profile = Profile.find_by(user: current_user)
