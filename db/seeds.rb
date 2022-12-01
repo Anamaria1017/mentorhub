@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning database..."
+Chatroom.destroy_all
 Match.destroy_all
 Profile.destroy_all
 User.destroy_all
@@ -43,7 +44,5 @@ mentor = Profile.create!(first_name: "Sandra", last_name: "Müller", username: "
 puts "Creating match!"
 
 # chatroom_1 = Chatroom.create!(match_id: match_1.id)
-
-# meeting_1 = Meeting.create!(match_id: match_1.id, start_time: "2022-12-05T15:00", end_time: "2022-12-05T16:00", name: "Kickoff", location: "Zoom")
 
 puts "Creating meeting!"
