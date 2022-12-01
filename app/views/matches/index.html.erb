@@ -13,6 +13,9 @@
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
             <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-user-xmark"></i>
+            <% end %>
             <div class="card-btn">
               <%= link_to match_path(match, match: false), data: {turbo_method: :patch} do %>
                 <i class="fa-solid fa-user-xmark"></i>
