@@ -15,11 +15,8 @@
             <%= link_to "#" do %>
                   <i class="fa-solid fa-user-xmark"></i>
             <% end %>
-            <%= link_to new_match_meeting_path(match) do %>
-                <i class="fa-regular fa-envelope"></i>
-            <% end %>
             <div class="card-btn">
-              <%= link_to match_path(match) do %>
+              <%= link_to chatrooms_path(chat: match.chatroom.id) do %>
                   <i class="fa-regular fa-envelope"></i>
               <% end %>
               <%= link_to match_path(match) do %>
@@ -42,7 +39,7 @@
                   <i class="fa-solid fa-user-xmark"></i>
                 <% end %>
               <div class="card-btn">
-                <%= link_to match_path(match) do %>
+                <%= link_to chatrooms_path(chat: match.chatroom.id) do %>
                   <i class="fa-regular fa-envelope"></i>
                 <% end %>
                 <%= link_to match_path(match) do %>
