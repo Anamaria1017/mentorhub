@@ -22,27 +22,98 @@
   width: 400px;
   overflow: hidden;
   background: white;
+  border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
 }
 
+.card h3 {
+  color: #794FFA;
+}
+
 .cards a {
-  color: rgb(20, 3, 3);
+  // color: rgb(20, 3, 3);
+  color: #794FFA;
   text-decoration: none;
 }
 
 .cards a:hover{
-  color: #794FFA;
+  color: #3822BE;
 }
 
 .card .card-infos {
   padding: 16px;
 }
 
-.card .card-infos a {
+.card-infos a {
   font-size: 20px;
   opacity: .7;
   margin: 0;
+  padding-left: 10px;
+}
+
+.card-infos h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.card-infos p {
+  padding-left: 10px;
+}
+
+.card-btn {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 196px;
+  width: 100px;
+  gap: 25px;
+}
+
+.show-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-match {
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.card-match {
+  width: 700px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.card-match-info {
+  padding-top: 20px;
+}
+
+.card-match h3 {
+  padding-top: 40px;
+  text-align: center;
+  color: #794FFA;
+}
+
+.card-match h5 {
+  padding-top: 15px;
+  text-align: center;
+  color: #7e7d81;
+}
+
+.card-match-info p {
+  padding-left: 34px;
 }
 
 // Medium devices (tablets, 768px and up)

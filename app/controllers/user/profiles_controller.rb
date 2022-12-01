@@ -1,5 +1,9 @@
 class User::ProfilesController < ApplicationController
   def new
-    @profile = Profile.new(user: current_user)
+    if current_user.profile
+      redirect_to matches_path
+    else
+      @profile = Profile.new(user: current_user)
+    end
   end
 end
