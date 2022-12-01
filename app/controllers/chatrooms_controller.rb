@@ -6,7 +6,7 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
-    @chatroom = Chatroom.find(params[:chat])
+    @chatroom = Chatroom.ids
     @message = Message.new
   end
 
