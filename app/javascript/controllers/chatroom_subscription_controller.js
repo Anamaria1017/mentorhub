@@ -11,11 +11,11 @@ export default class extends Controller {
       { received: (data) => this.#insertMessageAndScrollDown(data) }
     );
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
-    #insertMessageAndScrollDown(data) { 
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-    }
+  }
 
+  #insertMessageAndScrollDown(data) {
+  this.messagesTarget.insertAdjacentHTML("beforeend", data)
+  this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   resetForm(event) {

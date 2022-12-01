@@ -5,7 +5,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.where(match_id: current_user.my_matches.pluck(:id))
     @chatroom = Chatroom.find(params[:chat])
     @message = Message.new
   end
