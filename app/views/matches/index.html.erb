@@ -12,11 +12,18 @@
             <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
-            <%= link_to "#" do %>
+
+            <%= link_to match_path(match, match: false), data: {turbo_method: :patch} do %>
+
+            <button class="dark-button">Meeting invitation</button>
+            <%= link_to new_match_meeting_path(match) do %>
                   <i class="fa-solid fa-user-xmark"></i>
             <% end %>
             <div class="card-btn">
-              <%= link_to "Meetup Invitation!", new_match_meeting_path(match), class: "btn btn-outline-dark" %>
+
+              <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
+              <% end %>
               <%= link_to match_path(match) do %>
                   <i class="fa-regular fa-heart"></i>
               <% end %>
@@ -33,11 +40,19 @@
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>
-              <%= link_to "#" do %>
+
+              <%= link_to match_path(match, match: false), data: {turbo_method: :patch}  do %>
+
+              <button class="dark-button">Meeting invitation</button>
+              <%= link_to new_match_meeting_path(match) do %>
+
                   <i class="fa-solid fa-user-xmark"></i>
-                <% end %>
+              <% end %>
               <div class="card-btn">
-                <%= link_to "Meetup Invitation!", new_match_meeting_path(match), class: "btn btn-outline-dark" %>
+               
+                <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
+                <% end %>
                 <%= link_to match_path(match) do %>
                   <i class="fa-regular fa-heart"></i>
                 <% end %>

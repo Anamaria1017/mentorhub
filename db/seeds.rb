@@ -39,7 +39,7 @@ user_sandra = User.create!(email: "sandra@hotmail.com", password: "Pedro1234", m
 
 mentor = Profile.create!(first_name: "Sandra", last_name: "Müller", username: "Sandi", position: "Partner", city: "Frankfurt", highest_education: "Master", target_industry: "Education", preferred_language: "German", type_of_meeting: "online", user: user_sandra)
 
-# match_1 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id)
+# unmatch_52 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id, match: false)
 
 puts "Creating match!"
 

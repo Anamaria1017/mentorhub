@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
 
   def index
       @profile = Profile.find_by(user: current_user)
-      @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id))
+      @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true)
   end
 
   def show
@@ -12,8 +12,10 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match.update!(match: false)
-    flash[:success] = "Match was successfully unmatched"
+    if params[:match] == "false"
+      @match.update!(match: false)
+      flash[:success] = "Match was successfully unmatched"
+    end
     redirect_to matches_path
   end
 
