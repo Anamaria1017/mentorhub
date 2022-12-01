@@ -37,6 +37,28 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def find_mentees
+    matching_profiles = Profile.joins(:user).where(profiles: { target_industry: @profile.target_industry, city: @profile.city }, users: { mentor: false })
+    @matches = []
+    matching_profiles.each do |profile|
+      match = Match.create(mentee_id: profile.id, mentor_id: @profile.id)
+      Chatroom.create(match_id: match.id)
+      @matches << match
+    end
+    redirect_to profile_path(@profile), notice: "Profile was successfully updated. You might have new matches"
+  end
+
+  def find_mentors
+    matching_profiles = Profile.joins(:user).where(profiles: {target_industry: @profile.target_industry, city: @profile.city}, users: {mentor: true})
+    @matches = []
+    matching_profiles.each do |profile|
+        match = Match.create(mentor_id: profile.id, mentee_id: @profile.id)
+        Chatroom.create(match_id: match.id)
+        @matches << match
+    end
+    redirect_to profile_path(@profile), notice: "Profile was successfully updated. You might have new matches"
+  end
+
   private
 
   def profile_params
