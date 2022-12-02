@@ -34,18 +34,21 @@ class MeetingsController < ApplicationController
 
   def update
     @meeting = Meeting.find(params[:id])
-    #@meeting.update(meeting_params)
     if params[:status] == "1"
-      # @Meeting.accepted!
       @meeting.update!(status: 1)
       flash[:success] = "Meeting was accepted"
       redirect_to meeting_path(@meeting)
     elsif params[:status] == "2"
-      # @meeting.declined!
       @meeting.update!(status: 2)
       flash[:error] = "Meeting was declined"
       redirect_to meeting_path(@meeting)
     end
+  end
+
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to meetings_path, status: :see_other
   end
 
   private
