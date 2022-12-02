@@ -84,6 +84,10 @@
         <h2>General information</h2>
 
         <div class="form-inputs">
+          <%= f.input :photo, as: :file %>
+        </div>
+
+        <div class="form-inputs">
           <%= f.input :first_name, label: 'Name' %>
         </div>
 
@@ -148,10 +152,6 @@
         </div>
 
       <% end %>
-
-        <div class="form-inputs">
-          <%= f.input :photo, as: :file %>
-        </div>
 
         <div class="form-actions">
           <%= f.button :submit , class: "btn btn-outline-dark" %>

@@ -81,4 +81,5 @@ end
 
 gem "ruby-lsp", "~> 0.3.6", :group => :development
 
-gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"
