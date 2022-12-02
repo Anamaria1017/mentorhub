@@ -38,7 +38,7 @@
               <p>Industry: <%= match.mentee.target_industry %></p>
               <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
               <div class="card-btn">
-                <%= link_to match_path(match, match: false, turbo_confirm: "Are you sure you want to delete match?"), data: {turbo_method: :patch} do %>
+                <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
                   <i class="fa-solid fa-ban"></i>
                 <% end %>
                 <%= link_to chatrooms_path(chat: match.chatroom) do %>
