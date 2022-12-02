@@ -1,13 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #794FFA;
-  font-family: "Crimson Text", serif;
-  height: 100px;
-  color: white;
+  height: 96px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+}
+.navbar a {
+  color: #0e0e0f !important
+}
+
+.dropdown-menu {
+  color: #6a6ab9 !important
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -22,5 +27,5 @@
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: #b07eff
 }

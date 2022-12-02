@@ -1,7 +1,8 @@
 class Meeting < ApplicationRecord
   belongs_to :match
-
-  validates :date, :time, :location, presence: true
+  belongs_to :profile
+  
+  validates :start_time, :end_time, :location, presence: true
 
   enum status: {
     pending: 0,

@@ -1,26 +1,56 @@
-<div class="container col-8">
+<div class="container">
 <h1> My Matches</h1>
-  <div>
-    <div>
-      <% @matches.each do |match| %>
-        <% if @profile.mentor == false %>
-        <%# Mentee %>
-        <p>Name: <%= match.mentor.first_name %></p>
-        <p>Surname: <%= match.mentor.last_name %></p>
-        <p>City: <%= match.mentor.city %></p>
-        <p>Languages: <%= match.mentor.languages %></p>
-        <p>Working experience: <%= match.mentor.working_experience %></p>
-        <p>Last role: <%= match.mentor.position %></p>
-        <% else %>
-    </div>
-      <%# Mentor %>
-    <div>
-      <p>Name: <%= match.mentee.first_name %></p>
-      <p>Surname: <%= match.mentee.last_name %></p>
-      <p>City: <%= match.mentee.city %></p>
-      <p>Languages:<%= match.mentee.languages %></p>
-      <p>Industry: <%= match.mentee.target_industry %></p>
-      <p>Last role: <%= match.mentee.position %></p>
+  <div class="cards">
+
+    <% @matches.each do |match| %>
+      <% if @profile.mentor == false %>
+        <%# I am a Mentee and should see Mentors %>
+        <div class="card">
+          <%= link_to '', match_path(match), class: 'card-link' %>
+          <div class="card-infos">
+            <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
+            <p>City: <%= match.mentor.city %></p>
+            <p>Last role: <%= match.mentor.position %></p>
+            <p>Industry: <%= match.mentor.target_industry %></p>
+            <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
+            <div class="card-btn">
+              <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
+                <i class="fa-solid fa-ban"></i>
+              <% end %>
+              <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
+              <% end %>
+              <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-heart"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%# I am Mentor and should see Mentees %>
+        <div class="card">
+          <div class="card-infos">
+            <%= link_to '', match_path(match), class: 'card-link' %>
+            <div class="card-infos">
+              <h3><%= link_to match.mentee.first_name, match_path(match) %></h3>
+              <p>City: <%= match.mentee.city %></p>
+              <p>Last role: <%= match.mentee.position %></p>
+              <p>Industry: <%= match.mentee.target_industry %></p>
+              <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
+              <div class="card-btn">
+                <%= link_to match_path(match, match: false, turbo_confirm: "Are you sure you want to delete match?"), data: {turbo_method: :patch} do %>
+                  <i class="fa-solid fa-ban"></i>
+                <% end %>
+                <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
+                <% end %>
+                <%= link_to match_path(match) do %>
+                  <i class="fa-regular fa-heart"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
     </div>

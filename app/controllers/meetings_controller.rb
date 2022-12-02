@@ -3,42 +3,52 @@ class MeetingsController < ApplicationController
 
   def index
     # find the right user
-    @meeting.profile = current_user.profiles.first
-    @meeting = Metting.where(profile_id: current_user)
+    # @meeting.profile = current_user.profile
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Meeting.joins(:match).where(matches: { mentor_id: current_user.profile.id })
+                       .or(Meeting.joins(:match).where(matches: { mentee_id: current_user.profile.id }))
+                       .where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
-    # @match = Match.find(params[:match_id])
+    @match = Match.find(params[:match_id])
     @meeting = Meeting.new
   end
 
   def create
-    # @match = Match.find(params[:match_id])
+    @match = Match.find(params[:match_id])
     @meeting = Meeting.new(meeting_params)
     @meeting.match = @match
     # assign meeting to right user
-    @meeting.profile = current_user
-    if @metting.save
+    @meeting.profile = current_user.profile
+    if @meeting.save
       redirect_to meetings_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
+
   def update
     @meeting = Meeting.find(params[:id])
-    # @meeting.update(meeting_params)
     if params[:status] == "1"
-      # @Meeting.accepted!
       @meeting.update!(status: 1)
       flash[:success] = "Meeting was accepted"
-      redirect_to meeting_path
+      redirect_to meeting_path(@meeting)
     elsif params[:status] == "2"
-      # @meeting.declined!
       @meeting.update!(status: 2)
       flash[:error] = "Meeting was declined"
-      redirect_to meeting_path
+      redirect_to meeting_path(@meeting)
     end
+  end
+
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to meetings_path, status: :see_other
   end
 
   private
@@ -48,6 +58,6 @@ class MeetingsController < ApplicationController
   end
 
   def meeting_params
-    params.require(:meeting).permit(:date, :time, :subject, :location, :status)
+    params.require(:meeting).permit(:start_time, :end_time, :name, :location)
   end
 end

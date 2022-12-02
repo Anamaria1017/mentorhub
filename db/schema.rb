@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_11_30_153513) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_134420) do
+>>>>>>> 224dcfd95aed2e218b710cdef6a1ddad39cb5ad1
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,15 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_153513) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
-    t.string "subject"
+    t.datetime "start_time", precision: nil
+    t.string "name"
     t.string "location"
     t.integer "status", default: 0
     t.bigint "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id", null: false
+    t.datetime "end_time"
     t.index ["match_id"], name: "index_meetings_on_match_id"
     t.index ["profile_id"], name: "index_meetings_on_profile_id"
   end
@@ -85,7 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_153513) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.boolean "mentor"
     t.date "birthday"
     t.string "languages"
     t.string "city"
@@ -113,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_153513) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "mentor"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
