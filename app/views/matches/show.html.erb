@@ -13,7 +13,7 @@
           <% unless @match.mentor.edu_organization.blank? %><p>School/University: <%= @match.mentor.edu_organization%></p><% end %>
           <% unless @match.mentor.position.blank? %><p>Last role: <%= @match.mentor.position %></p><% end %>
           <% unless @match.mentor.languages.blank? %><p>Languages: <%= @match.mentor.languages %></p><% end %>
-          <% unless @match.mentor.preferred_language.blank? %><p>Preffered Meeting Language: <%= @match.mentor.preferred_language%></p><% end %>
+          <% unless @match.mentor.preferred_language.blank? %><p>Preferred Meeting Language: <%= @match.mentor.preferred_language%></p><% end %>
           <% unless @match.mentor.bio.blank? %><p>About me: <%= @match.mentor.bio%></p><% end %>
         </div>
       </div>
@@ -31,11 +31,14 @@
             <% unless @match.mentee.working_experience.blank? %><p>Working experience: <%= @match.mentee.working_experience %></p><% end %>
             <% unless @match.mentee.position.blank? %><p>Current role: <%= @match.mentee.position %></p><% end %>
             <% unless @match.mentee.languages.blank? %><p>Languages:<%= @match.mentee.languages %></p><% end %>
-            <% unless @match.mentee.preferred_language.blank? %><p>Preffered Meeting Language: <%= @match.mentee.preferred_language%></p><% end %>
+            <% unless @match.mentee.preferred_language.blank? %><p>Preferred Meeting Language: <%= @match.mentee.preferred_language%></p><% end %>
           <% end %>
         </div>
         <div class="show-card-btn">
           <%= link_to "Back", matches_path, class: "purple-button" %>
+          <%= link_to chatrooms_path(chat: @match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
+              <% end %>
         </div>
       </div>
   </div>
