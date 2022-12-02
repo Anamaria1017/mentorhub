@@ -9,6 +9,7 @@
           <%= link_to '', match_path(match), class: 'card-link' %>
           <div class="card-infos">
             <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
+            <%= cl_image_tag match.mentor.photo.key, height: 300, width: 400, crop: :fill %>
             <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
@@ -33,6 +34,7 @@
             <%= link_to '', match_path(match), class: 'card-link' %>
             <div class="card-infos">
               <h3><%= link_to match.mentee.first_name, match_path(match) %></h3>
+              <%= cl_image_tag match.mentee.photo.key, height: 300, width: 400, crop: :fill %>
               <p>City: <%= match.mentee.city %></p>
               <p>Last role: <%= match.mentee.position %></p>
               <p>Industry: <%= match.mentee.target_industry %></p>

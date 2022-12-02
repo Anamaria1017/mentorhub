@@ -79,6 +79,8 @@
           <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
         </div>
 
+        <%= f.input :photo, as: :file %>
+
       <% else %>
 
         <h2>General information</h2>
@@ -150,6 +152,8 @@
         <div class="form-inputs">
           <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
         </div>
+
+        <%= f.input :photo, as: :file %>
 
       <% end %>
 
