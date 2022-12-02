@@ -8,7 +8,7 @@ class Profile < ApplicationRecord
   delegate :mentor, to: :user
 
   after_create :assign_matches
-  # I had to remove mentor to be able to create mock data, why?s
+  # I had to remove mentor to be able to create mock data, why?
 
   def assign_matches
     mentor ? find_mentees : find_mentors
