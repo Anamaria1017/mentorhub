@@ -3,9 +3,11 @@
   <div class="row">
     <div>
       <h3 class="py-3">Profile Details</h3>
-      <% if @profile.photo.attached?%>
-          <%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+      <div>
+        <% if @profile.photo.attached?%>
+            <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill %>
+        <% end %>
+      </div>
       <p> Name: <%= @profile.first_name %></p>
       <p> Surname: <%= @profile.last_name %></p>
       <p> Usename: <%= @profile.username %><p>
