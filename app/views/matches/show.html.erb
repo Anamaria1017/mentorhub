@@ -7,6 +7,7 @@
         <h5><%= @match.mentor.city %></h5>
         <div class="card-match-info">
           <p>Industry: <%= @match.mentor.target_industry %></p>
+          <%= cl_image_tag @match.mentor.photo.key, height: 300, width: 400, crop: :fill %>
           <% unless @match.mentor.mentor_skills.blank? %><p>My skills: <%= @match.mentor.mentor_skills%></p><% end %>
           <% unless @match.mentor.birthday.blank? %><p>Birthday: <%= @match.mentor.birthday%></p><% end %>
           <% unless @match.mentor.highest_education.blank? %><p>Highest education title: <%= @match.mentor.highest_education %></p><% end %>
@@ -25,6 +26,7 @@
         <h5><%= @match.mentee.city %></h5>
         <div class="card-match-info">
             <p>Industry: <%= @match.mentee.target_industry %></p>
+            <%= cl_image_tag @match.mentee.photo.key, height: 300, width: 400, crop: :fill %>
             <% unless @match.mentee.birthday.blank?%><p>Birthday: <%= @match.mentee.birthday%></p><% end %>
             <% unless @match.mentee.highest_education.blank? %><p>Highest education title: <%= @match.mentee.highest_education %></p><% end %>
             <% unless @match.mentee.edu_organization.blank? %><p>School/University: <%= @match.mentee.edu_organization%></p><% end %>
