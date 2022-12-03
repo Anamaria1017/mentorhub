@@ -31,6 +31,10 @@
   color: #794FFA;
 }
 
+.card h5 {
+  color: #7e7d81;
+}
+
 .cards a {
   // color: rgb(20, 3, 3);
   color: #794FFA;
@@ -42,7 +46,8 @@
 }
 
 .card .card-infos {
-  padding: 16px;
+  padding-left: 16px;
+  padding-bottom: 16px;
 }
 
 .card-infos a {
@@ -50,6 +55,7 @@
   opacity: .7;
   margin: 0;
   padding-left: 10px;
+  text-align: center;
 }
 
 .card-infos h3 {
@@ -63,10 +69,11 @@
 }
 
 .card-btn {
+  padding-top: 10px;
   display: flex;
   position: absolute;
   right: 76px;
-  top: 276px;
+  top: 219px;
   width: 100px;
   gap: 25px;
 }
@@ -75,6 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #794FFA;
 }
 
 .cards-match {

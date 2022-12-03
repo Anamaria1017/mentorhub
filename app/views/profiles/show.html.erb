@@ -8,15 +8,15 @@
   </div>
   <div class="row cards-profile">
     <div class="card-profile">
-      <div>
+      <div class ="row p-3">
         <% if @profile.photo.attached?%>
-            <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill %>
+            <%= cl_image_tag @profile.photo.key, crop: :fill %>
         <% else %>
-              <%= image_tag "logo.webp", class: "profile-avatar", height: 300, width: 300, crop: :fill %>
+              <%= image_tag "logo.webp", class: "profile-avatar", crop: :fill %>
         <% end %>
       </div>
       <div class= "card-profile-infos">
-        <h3 class = "py-3">Profile Details</h3>
+        <h3 class = "py-4">Profile Details</h3>
         <p> Name: <%= @profile.first_name %></p>
         <p> Surname: <%= @profile.last_name %></p>
         <p> Usename: <%= @profile.username %><p>

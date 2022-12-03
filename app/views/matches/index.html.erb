@@ -9,13 +9,13 @@
           <%= link_to '', match_path(match), class: 'card-link' %>
             <div class ="row p-3">
               <% if match.mentor.photo.attached?%>
-                <%= cl_image_tag match.mentor.photo.key, crop: :fill, class: "col-5" %>
+                <%= cl_image_tag match.mentor.photo.key, crop: :fill, class: "col-4" %>
               <% else %>
-                <%= image_tag "logo.webp", class: "match-avatar", crop: :fill, class: "col-5" %>
+                <%= image_tag "logo.webp", class: "match-avatar", crop: :fill, class: "col-4" %>
               <% end %>
-              <div class = "p-3 col-7">
+              <div class = "py-2 col-8">
                 <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
-                <p><%= match.mentor.city.capitalize %></p>
+                <h5><%= match.mentor.city.capitalize %></h5>
               </div>
             </div>
           <div class="card-infos">
