@@ -1,0 +1,19 @@
+.calendar-heading {
+  display: flex;
+}
+
+.calendar-title {
+  margin: 0 10px;
+  align-self: center;
+}
+
+.calendar-link {
+  a {
+    all: unset;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    color: #794ffa;
+    text-align: center;
+  }
+}
