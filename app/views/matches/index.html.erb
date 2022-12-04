@@ -1,18 +1,37 @@
 <div class="container">
-<h1> My Matches</h1>
+<div class ="row p-3">
+  <h1> My Matches</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <% @matches.each do |match| %>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= link_to "Liked", "#", class: "dropdown-item"%></li>
+        <li><%= link_to "By city", matches_path(param1: "order_by_city"), class: "dropdown-item"%></li>
+        <li><%= link_to "New matches", matches_path(param1: "new_matches"), class: "dropdown-item"%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
   <div class="cards">
-
     <% @matches.each do |match| %>
       <% if @profile.mentor == false %>
         <%# I am a Mentee and should see Mentors %>
         <div class="card">
           <%= link_to '', match_path(match), class: 'card-link' %>
+            <div class ="row p-3">
+              <% if match.mentor.photo.attached?%>
+                <%= cl_image_tag match.mentor.photo.key, crop: :fill, class: "col-4" %>
+              <% else %>
+                <%= image_tag "logo.webp", class: "match-avatar", crop: :fill, class: "col-4" %>
+              <% end %>
+              <div class = "py-2 col-8">
+                <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
+                <h5><%= match.mentor.city.capitalize %></h5>
+              </div>
+            </div>
           <div class="card-infos">
-            <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
-            <% if match.mentor.photo.attached?%>
-            <%= cl_image_tag match.mentor.photo.key, height: 300, width: 400, crop: :fill %>
-            <% end %>
-            <p>City: <%= match.mentor.city %></p>
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
             <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
@@ -32,29 +51,32 @@
       <% else %>
         <%# I am Mentor and should see Mentees %>
         <div class="card">
-          <div class="card-infos">
-            <%= link_to '', match_path(match), class: 'card-link' %>
-            <div class="card-infos">
+          <%= link_to '', match_path(match), class: 'card-link' %>
+          <div class="row p-3">
+            <% if match.mentee.photo.attached?%>
+              <%= cl_image_tag match.mentee.photo.key, crop: :fill, class: "col-5" %>
+            <% else %>
+                <%= image_tag "logo.webp", class: "match-avatar", crop: :fill, class: "col-5" %>
+            <% end %>
+            <div class = "p-3 col-7">
               <h3><%= link_to match.mentee.first_name, match_path(match) %></h3>
-              <%= cl_image_tag match.mentee.photo.key, height: 300, width: 400, crop: :fill %>
-              <% if match.mentee.photo.attached?%>
-                <%= cl_image_tag match.mentee.photo.key, height: 300, width: 400, crop: :fill %>
+              <p><%= match.mentee.city.capitalize %></p>
+            </div>
+          </div>
+          <div class="card-infos">
+            <p>Last role: <%= match.mentee.position %></p>
+            <p>Industry: <%= match.mentee.target_industry %></p>
+            <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
+            <div class="card-btn">
+              <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
+                <i class="fa-solid fa-ban"></i>
               <% end %>
-              <p>City: <%= match.mentee.city %></p>
-              <p>Last role: <%= match.mentee.position %></p>
-              <p>Industry: <%= match.mentee.target_industry %></p>
-              <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
-              <div class="card-btn">
-                <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
-                  <i class="fa-solid fa-ban"></i>
-                <% end %>
-                <%= link_to chatrooms_path(chat: match.chatroom) do %>
-                  <i class="fa-regular fa-envelope"></i>
-                <% end %>
-                <%= link_to match_path(match) do %>
-                  <i class="fa-regular fa-heart"></i>
-                <% end %>
-              </div>
+              <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                <i class="fa-regular fa-envelope"></i>
+              <% end %>
+              <%= link_to match_path(match) do %>
+                <i class="fa-regular fa-heart"></i>
+              <% end %>
             </div>
           </div>
         </div>

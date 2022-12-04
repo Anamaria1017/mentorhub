@@ -161,8 +161,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
     prettier_print (1.1.0)
@@ -278,8 +276,8 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.6.6)
 
+PLATFORMS
   arm64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails

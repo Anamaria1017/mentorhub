@@ -57,6 +57,8 @@
           <%= f.input :bio %>
         </div>
 
+        <%= f.input :photo, as: :file %>
+
         <h2 class="py-3">Match Preferences</h2>
 
         <div class="form-inputs">
@@ -78,8 +80,6 @@
         <div class="form-inputs">
           <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
         </div>
-
-        <%= f.input :photo, as: :file %>
 
       <% else %>
 
@@ -131,6 +131,8 @@
           <%= f.input :bio %>
         </div>
 
+        <%= f.input :photo, as: :file %>
+
         <h2 class="py-3">Match Preferences</h2>
 
         <div class="form-inputs">
@@ -153,8 +155,6 @@
           <%= f.input :proximity_preference, collection: [ "Same city", "No preference"] %>
         </div>
 
-        <%= f.input :photo, as: :file %>
-
       <% end %>
 
         <div class="form-actions">
@@ -169,4 +169,3 @@
     </div>
   </div>
 </div>
-<%= render "form" %>
