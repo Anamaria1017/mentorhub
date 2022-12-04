@@ -1,13 +1,13 @@
-<div class="row rounded-lg overflow-hidden shadow">
-    <div class="row">
-      <div class="col-4">
-          <h1> Recent messages</h1>
-          <ul>
-            <% @chatrooms.each do |chatroom| %>
-              <li> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
-            <% end %>
-          </ul>
-      </div>
+<div class="row rounded-lg overflow-hidden shadow container">
+  <div class="row">
+    <div class="col-5 px-0">
+        <h1> Recent messages</h1>
+        <ul>
+          <% @chatrooms.each do |chatroom| %>
+            <li> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
+          <% end %>
+        </ul>
+    </div>
       <div class="container chatroom col-8" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         <h1>Chat with <%= @chatroom.match.mentee.first_name %></h1>
           <div class="messages" data-chatroom-subscription-target="messages">
@@ -22,7 +22,7 @@
             placeholder: "Write your message here...",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Send", class: "dark-button" %>
+          <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
           <% end %>
       </div>
     </div>

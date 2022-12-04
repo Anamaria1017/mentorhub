@@ -1,5 +1,5 @@
 
-  <div class="row rounded-lg overflow-hidden shadow">
+  <div class="row rounded-lg overflow-hidden shadow container">
     <div class="row">
       <div class="col-4">
           <h1> Recent messages</h1>
@@ -23,8 +23,9 @@
             placeholder: "Write your message here...",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Send", class: "dark-button" %>
+          <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
           <% end %>
+
       </div>
     </div>
   </div>
