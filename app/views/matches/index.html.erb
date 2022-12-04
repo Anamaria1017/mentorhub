@@ -1,7 +1,20 @@
 <div class="container">
-<h1> My Matches</h1>
+<div class ="row p-3">
+  <h1> My Matches</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <% @matches.each do |match| %>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= link_to "Liked", "#", class: "dropdown-item"%></li>
+        <li><%= link_to "By city", matches_path(param1: "order_by_city"), class: "dropdown-item"%></li>
+        <li><%= link_to "New matches", matches_path(param1: "new_matches"), class: "dropdown-item"%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
   <div class="cards">
-
     <% @matches.each do |match| %>
       <% if @profile.mentor == false %>
         <%# I am a Mentee and should see Mentors %>
