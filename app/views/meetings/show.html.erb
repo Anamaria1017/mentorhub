@@ -13,7 +13,7 @@
       <span class="badge badge-danger"><%= @meeting.status.capitalize %></span>
       <% end %>
       </h3>
-      <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=@meeting.start_time%> - <%=@meeting.end_time%></p>
+      <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=@meeting.start_time.strftime('%Y-%m-%d, at %I:%M') %> - <%=@meeting.end_time.strftime('%I:%M')%></p>
       <p class="card-text">Location: € <%=@meeting.location%></p>
       <% if current_user.profile != @meeting.profile %>
         <div class = "action-buttons">
