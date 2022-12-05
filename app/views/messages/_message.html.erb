@@ -1,11 +1,13 @@
 <div id="message-<%= message.id %>" class="<%= message.profile.user == current_user ? 'author' : 'receiver' %>">
-  <small>
-    <% if current_user.profile.photo.attached?%>
-              <%= cl_image_tag current_user.profile.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "logo.webp", class: "avatar dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+  <div class="d-flex <%= 'justify-content-end' if message.profile.user == current_user %>">
+    <% if current_user.profile.photo.attached? && message.profile.user != current_user %>
+      <%= cl_image_tag current_user.profile.photo.key, class: "avatar" %>
+    <% end %>
+    <div class="message-content">
+      <p><%= message.content %></p>
+    </div>
+    <% if current_user.profile.photo.attached? && message.profile.user == current_user %>
+      <%= cl_image_tag current_user.profile.photo.key, class: "avatar" %>
+    <% end %>
+  </div>
 </div>

@@ -2,7 +2,7 @@
   <div class="row rounded-lg overflow-hidden shadow container">
     <div class="row">
       <div class="col-4">
-          <h1> Recent messages</h1>
+          <h2> Recent messages</h2>
           <ul class="list-group">
             <% @chatrooms.each do |chatroom| %>
               <li class="list-group-item"> <%= link_to chatroom.match.mentor.first_name, chatrooms_path(chat: chatroom.id) %> </li>
@@ -10,7 +10,7 @@
           </ul>
       </div>
       <div class="container chatroom col-8" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h1>Chat with <%= @chatroom.match.mentor.first_name %></h1>
+        <h2>Chat with <%= @chatroom.match.mentor.first_name %></h2>
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
@@ -29,4 +29,3 @@
       </div>
     </div>
   </div>
-
