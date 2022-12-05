@@ -1,33 +1,50 @@
 <div class="container">
-  <%# @meetings.each do |meeting| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= @meeting.name %></h5>
-        <h3 class="card-text card-badge">
-        <% if @meeting.status == 'pending' %>
-        <span class="badge badge-secondary"><%= @meeting.status.capitalize %></span>
-        <% end %>
-        <% if @meeting.status == 'accepted' %>
-        <span class="badge badge-success"><%= @meeting.status.capitalize %></span>
-        <% end %>
-        <% if @meeting.status == 'declined' %>
-        <span class="badge badge-danger"><%= @meeting.status.capitalize %></span>
-        <% end %>
-        </h3>
-        <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=@meeting.start_time%> - <%=@meeting.end_time%></p>
-        <p class="card-text">Location: € <%=@meeting.location%></p>
-      </div>
-      <div class = "action-buttons">
-        <% if @meeting.profile == current_user.profile && @meeting.status == 'pending' %>
-          <%= button_to "Accept", meeting_path(@meeting, status: 1), method: :patch, class: "btn btn-light" %>
-        <% end %>
-        <% if @meeting.profile == current_user.profile && @meeting.status == 'pending' %>
-          <%= button_to "Decline", meeting_path(@meeting, status: 2), method: :patch, class: "btn btn-light" %>
-        <% end %>
-      </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @meeting.name %></h5>
+      <h3 class="card-text card-badge">
+      <% if @meeting.status == 'pending' %>
+      <span class="badge badge-secondary"><%= @meeting.status.capitalize %></span>
+      <% end %>
+      <% if @meeting.status == 'accepted' %>
+      <span class="badge badge-success"><%= @meeting.status.capitalize %></span>
+      <% end %>
+      <% if @meeting.status == 'declined' %>
+      <span class="badge badge-danger"><%= @meeting.status.capitalize %></span>
+      <% end %>
+      </h3>
+      <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=@meeting.start_time%> - <%=@meeting.end_time%></p>
+      <p class="card-text">Location: € <%=@meeting.location%></p>
+      <% if current_user.profile != @meeting.profile %>
+        <div class = "action-buttons">
+          <% if @meeting.profile != current_user.profile && @meeting.status == 'pending' %>
+            <%= link_to meeting_path(@meeting, status: 1), data: { turbo_method: :patch } do %>
+              <i class="fa-regular fa-calendar-check" style="
+                color: black;
+                font-size: 22px;"></i>
+            <% end %>
+          <% end %>
+          <% if @meeting.profile != current_user.profile && @meeting.status == 'pending' %>
+            <%= link_to meeting_path(@meeting, status: 2), data: { turbo_method: :patch } do %>
+              <i class="fa-regular fa-calendar-xmark" style="
+                color: black;
+                font-size: 22px;"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+        <div class = "action-buttons">
+          <% if current_user.profile == @meeting.profile %>
+            <%= link_to meeting_path(@meeting), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete meeting?"} do %>
+              <i class="fa-regular fa-trash-can" style="
+                color: black;
+                font-size: 22px;"></i>
+            <% end %>
+          <% end %>
+        </div>
     </div>
-    <div class= "p-2">
-      <%= link_to "My meetings", meetings_path(@meeting), class: "btn btn-dark" %>
-    </div>
-          <%# cards end%>
+  </div>
+  <div class= "p-2">
+    <%= link_to "My meetings", meetings_path(@meeting), class: "purple-button" %>
+  </div>
 </div>

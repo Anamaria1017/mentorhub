@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
   has_many :matches_as_mentee, foreign_key: "mentee_id", class_name: "Match", dependent: :destroy
   has_many :matches_as_mentor, foreign_key: "mentor_id", class_name: "Match", dependent: :destroy
   has_many :messages, dependent: :destroy
