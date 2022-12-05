@@ -34,23 +34,25 @@
           <div class="card-infos">
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
-            <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
-            <div class="card-btn">
-              <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
-                <i class="fa-solid fa-ban"></i>
-              <% end %>
-              <%= link_to chatrooms_path(chat: match.chatroom) do %>
-                  <i class="fa-regular fa-envelope"></i>
-              <% end %>
-              <% if match.like.liked %>
-                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-solid fa-heart"></i>
+            <div class="row p-3">
+              <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button col-6" %>
+              <div class="card-btn card-btn col-6">
+                <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
+                  <i class="fa-solid fa-ban"></i>
                 <% end %>
-              <% else %>
-                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-regular fa-heart"></i>
+                <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                    <i class="fa-regular fa-envelope"></i>
                 <% end %>
-              <% end %>
+                <% if match.like.liked %>
+                  <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                      <i class="fa-solid fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                      <i class="fa-regular fa-heart"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +64,7 @@
             <% if match.mentee.photo.attached?%>
               <%= cl_image_tag match.mentee.photo.key, crop: :fill, class: "col-5" %>
             <% else %>
-                <%= image_tag "logo.webp", class: "match-avatar", crop: :fill, class: "col-5" %>
+                <%= image_tag "logo.webp", crop: :fill, class: "col-5" %>
             <% end %>
             <div class = "p-3 col-7">
               <h3><%= link_to match.mentee.first_name, match_path(match) %></h3>
@@ -72,23 +74,25 @@
           <div class="card-infos">
             <p>Last role: <%= match.mentee.position %></p>
             <p>Industry: <%= match.mentee.target_industry %></p>
-            <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
-            <div class="card-btn">
-              <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
-                <i class="fa-solid fa-ban"></i>
-              <% end %>
-              <%= link_to chatrooms_path(chat: match.chatroom) do %>
-                <i class="fa-regular fa-envelope"></i>
-              <% end %>
-              <% if match.like.liked %>
-                <%= link_to like_path(match.like), data: {turbo_method: :patch} do%>
-                    <i class="fa-solid fa-heart"></i>
+            <div class="row p-3">
+              <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button col-6" %>
+              <div class="card-btn col-6">
+                <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
+                  <i class="fa-solid fa-ban"></i>
                 <% end %>
-              <% else %>
-                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-regular fa-heart"></i>
+                <%= link_to chatrooms_path(chat: match.chatroom) do %>
+                  <i class="fa-regular fa-envelope"></i>
                 <% end %>
-              <% end %>
+                <% if match.like.liked %>
+                  <%= link_to like_path(match.like), data: {turbo_method: :patch} do%>
+                      <i class="fa-solid fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                      <i class="fa-regular fa-heart"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
