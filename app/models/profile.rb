@@ -52,6 +52,7 @@ class Profile < ApplicationRecord
       "Computer Networking",
       "Computer Software",
       "Construction",
+      "Consulting",
       "Consumer Electronics",
       "Consumer Goods",
       "Consumer Services",
