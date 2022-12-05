@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-inputs">
-          <%= f.input :city, collection: [ "Berlin", "Frankfurt", "Hamburg", "München"]%>
+          <%= f.input :city, collection: Profile::CITIES%>
         </div>
 
         <div class="form-inputs">
@@ -107,7 +107,7 @@
         </div>
 
         <div class="form-inputs">
-          <%= f.input :city, collection: [ "Berlin", "Frankfurt", "Hamburg", "München"]%>
+          <%= f.input :city, collection: Profile::CITIES %>
         </div>
 
         <div class="form-inputs">
