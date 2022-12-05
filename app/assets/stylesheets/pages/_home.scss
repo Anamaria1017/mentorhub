@@ -1,9 +1,11 @@
 // Specific CSS for your home-page
+
 .banner {
-  height: 300px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  background-size: cover;
+  background-position: bottom;
+  padding: 150px 0;
+  height: 600px;
+  margin-bottom: 40px;
 
   h1 {
     color: white;
@@ -22,6 +24,11 @@
   .btn {
     padding: 15px 50px;
   }
+}
+
+.container {
+  margin-left: 50px;
+
 }
 
 .float-container {

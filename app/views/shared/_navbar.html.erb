@@ -1,7 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <p><i class="fa-solid fa-briefcase"></i> <strong>Mentor</strong>Hub</p>
+    <div style="display: flex">
+      <image style="margin-right: 10px" width="35px" src="logo.svg"></image>
+      <p style="margin: 0; align-self: flex-end"><strong>Mentor</strong>Hub</p>
+    </div>
+
     <% end %>
 
     <button
@@ -18,6 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+
           <li class="nav-item active">
             <%= link_to "Matches", matches_path, class: "nav-link" %>
           </li>
