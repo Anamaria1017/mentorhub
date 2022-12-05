@@ -9,7 +9,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><%= link_to "All matches", matches_path, class: "dropdown-item"%></li>
         <li><%= link_to "Liked matches", matches_path(status: "liked"), class: "dropdown-item"%></li>
-        <li><%= link_to "New matches", matches_path(param2: "new_matches"), class: "dropdown-item"%></li>
+        <li><%= link_to "New matches", matches_path(status: "new_matches"), class: "dropdown-item"%></li>
       </ul>
     <% end %>
   </div>
@@ -42,13 +42,13 @@
               <%= link_to chatrooms_path(chat: match.chatroom) do %>
                   <i class="fa-regular fa-envelope"></i>
               <% end %>
-              <% if match.like.liked == false %>
+              <% if match.like.liked %>
                 <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
                 <% end %>
               <% else %>
                 <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-regular fa-heart"></i>
                 <% end %>
               <% end %>
             </div>
@@ -80,13 +80,13 @@
               <%= link_to chatrooms_path(chat: match.chatroom) do %>
                 <i class="fa-regular fa-envelope"></i>
               <% end %>
-              <% if match.like.liked == false %>
+              <% if match.like.liked %>
                 <%= link_to like_path(match.like), data: {turbo_method: :patch} do%>
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
                 <% end %>
               <% else %>
                 <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
-                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-regular fa-heart"></i>
                 <% end %>
               <% end %>
             </div>

@@ -1,10 +1,10 @@
 class LikesController < ApplicationController
   def update
     @like = Like.find(params[:id])
-    if @like.liked == false
-      @like.update!(liked: true)
-    else
+    if @like.liked
       @like.update!(liked: false)
+    else
+      @like.update!(liked: true)
     end
     redirect_to matches_path
   end

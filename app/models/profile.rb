@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
   validates :first_name, :last_name, :username, :city, :target_industry, presence: true
   delegate :mentor, to: :user
 
-  after_create :assign_matches
+  after_save :assign_matches
   # I had to remove mentor to be able to create mock data, why?
 
   def assign_matches
@@ -17,11 +17,23 @@ class Profile < ApplicationRecord
   end
 
   def find_mentees
+    matches_as_mentor.each do |match|
+      Like.where(match_id: match.id).delete_all
+      match.chatroom.delete
+      match.meetings.delete_all
+    end
+    matches_as_mentor.destroy_all
     matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city }, users: { mentor: false })
     matching_profiles.each { |profile| match = Match.create(mentee_id: profile.id, mentor_id: id) }
   end
 
   def find_mentors
+    matches_as_mentee.each do |match|
+      Like.where(match_id: match.id).delete_all
+      match.chatroom.delete
+      match.meetings.delete_all
+    end
+    matches_as_mentee.destroy_all
     matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city }, users: { mentor: true })
     matching_profiles.each { |profile| match = Match.create(mentee_id: id, mentor_id: profile.id) }
   end
