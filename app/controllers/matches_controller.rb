@@ -3,8 +3,15 @@ class MatchesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-      @profile = Profile.find_by(user: current_user)
-      @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true)
+    @profile = Profile.find(current_user.profile.id)
+    @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true)
+    if params[:status] == "liked"
+      if current_user.mentor?
+        @matches = @profile.matches_as_mentor.select { |match| match.like.liked? }
+      else
+        @matches = @profile.matches_as_mentee.select { |match| match.like.liked? }
+      end
+    end
   end
 
   def show

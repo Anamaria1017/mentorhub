@@ -5,6 +5,7 @@ class Profile < ApplicationRecord
   has_many :matches_as_mentor, foreign_key: "mentor_id", class_name: "Match", dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :meetings, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :first_name, :last_name, :username, :city, :target_industry, presence: true
   delegate :mentor, to: :user
 

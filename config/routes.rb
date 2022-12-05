@@ -14,10 +14,12 @@ Rails.application.routes.draw do
 
   resources :meetings, only: %i[index show update destroy]
 
+  resources :likes, only: %i[update]
+
   namespace :user do
     root to: "profiles#new"
   end
-  # resources :likes, only: %i[update destroy]
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
