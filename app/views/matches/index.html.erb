@@ -7,9 +7,9 @@
     </button>
     <% @matches.each do |match| %>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><%= link_to "Liked", "#", class: "dropdown-item"%></li>
-        <li><%= link_to "By city", matches_path(param1: "order_by_city"), class: "dropdown-item"%></li>
-        <li><%= link_to "New matches", matches_path(param1: "new_matches"), class: "dropdown-item"%></li>
+        <li><%= link_to "All matches", matches_path, class: "dropdown-item"%></li>
+        <li><%= link_to "Liked matches", matches_path(status: "liked"), class: "dropdown-item"%></li>
+        <li><%= link_to "New matches", matches_path(param2: "new_matches"), class: "dropdown-item"%></li>
       </ul>
     <% end %>
   </div>
@@ -35,7 +35,6 @@
             <p>Last role: <%= match.mentor.position %></p>
             <p>Industry: <%= match.mentor.target_industry %></p>
             <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button" %>
-           
             <div class="card-btn">
               <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
                 <i class="fa-solid fa-ban"></i>
@@ -43,8 +42,14 @@
               <%= link_to chatrooms_path(chat: match.chatroom) do %>
                   <i class="fa-regular fa-envelope"></i>
               <% end %>
-              <%= link_to match_path(match) do %>
-                  <i class="fa-regular fa-heart"></i>
+              <% if match.like.liked == false %>
+                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                    <i class="fa-regular fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                    <i class="fa-solid fa-heart"></i>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -75,8 +80,14 @@
               <%= link_to chatrooms_path(chat: match.chatroom) do %>
                 <i class="fa-regular fa-envelope"></i>
               <% end %>
-              <%= link_to match_path(match) do %>
-                <i class="fa-regular fa-heart"></i>
+              <% if match.like.liked == false %>
+                <%= link_to like_path(match.like), data: {turbo_method: :patch} do%>
+                    <i class="fa-regular fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to like_path(match.like), data: {turbo_method: :patch} do %>
+                    <i class="fa-solid fa-heart"></i>
+                <% end %>
               <% end %>
             </div>
           </div>

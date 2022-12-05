@@ -53,7 +53,7 @@ class ProfilesController < ApplicationController
     @matches = []
     matching_profiles.each do |profile|
         match = Match.create(mentor_id: profile.id, mentee_id: @profile.id)
-        # Chatroom.create(match_id: match.id)
+        Chatroom.create(match_id: match.id)
         @matches << match
     end
     redirect_to profile_path(@profile), notice: "Profile was successfully updated. You might have new matches"

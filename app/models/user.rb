@@ -16,4 +16,8 @@ class User < ApplicationRecord
     chatrooms = Chatroom.where(match: matches)
     chatrooms.map(&:messages).flatten.max_by(&:created_at)&.chatroom&.id || chatrooms.last&.id
   end
+
+  def mentor?
+    mentor
+  end
 end
