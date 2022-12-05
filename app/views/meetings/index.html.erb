@@ -2,11 +2,77 @@
   <%= date %>
 
   <% meetings.each do |meeting| %>
-    <div>
-      <%= link_to meeting.name, meeting %>
-      <%= meeting.start_time %>
-      <%= meeting.end_time %>
-      <%= meeting.location %>
-    </div>
+    <% if meeting.status == 'pending' %>
+      <div class="card-meeting-pending">
+        <div>
+          <h5>
+            <%= link_to meeting.name, meeting %>
+          </h5>
+        </div>
+        <div>
+          <p>
+            At: <%= meeting.start_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            Till: <%= meeting.end_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            <%= meeting.location %>
+          </p>
+          <p>
+            Status: <%= meeting.status %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <% if meeting.status == 'accepted' %>
+      <div class="card-meeting-accepted">
+        <div>
+          <h5>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <%= meeting.name %>
+            </button>
+            <%= render "show_meeting_modal", meeting: meeting %>
+          </h5>
+        </div>
+        <div>
+          <p>
+            At: <%= meeting.start_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            Till: <%= meeting.end_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            <%= meeting.location %>
+          </p>
+          <p>
+            Status: <%= meeting.status %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <% if meeting.status == 'declined' %>
+      <div class="card-meeting-declined">
+        <div>
+          <h5>
+            <%= link_to meeting.name, meeting %>
+          </h5>
+        </div>
+        <div>
+          <p>
+            At: <%= meeting.start_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            Till: <%= meeting.end_time.strftime('%I:%M') %>
+          </p>
+          <p>
+            <%= meeting.location %>
+          </p>
+          <p>
+            Status: <%= meeting.status %>
+          </p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

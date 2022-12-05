@@ -124,6 +124,49 @@
   padding-left: 34px;
 }
 
+.card-meeting-pending {
+  width: 120px;
+  overflow: hidden;
+  background: #C8B6FF;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  color: rgb(53, 51, 51);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.card-meeting-accepted {
+  width: 120px;
+  overflow: hidden;
+  background: #794FFA;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.card-meeting-declined {
+  width: 120px;
+  overflow: hidden;
+  background: #C8B6FF;
+  opacity: 0.4;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  color:  rgb(53, 51, 51);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
