@@ -8,7 +8,9 @@
           <% end %>
         </ul>
     </div>
-      <div class="container chatroom col-8" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+      <div class="container chatroom col-8"
+           data-controller="chatroom-subscription"
+           data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         <h1>Chat with <%= @chatroom.match.mentee.first_name %></h1>
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @chatroom.messages.each do |message| %>
