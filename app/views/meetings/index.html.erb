@@ -1,15 +1,13 @@
 <%= month_calendar(events: @meetings) do |date, meetings| %>
-  <%= date %>
+  <%= date.strftime("%e") %>
 
   <% meetings.each do |meeting| %>
     <% if meeting.status == 'pending' %>
-      <div class="card-meeting-pending">
+      <button type="button" class="card-meeting-pending" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
         <div>
-          <h5>
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
-              <%= meeting.name %>
-            </button>
-          </h5>
+          <p style="color:white">
+            <%= meeting.name %>
+          </p>
         </div>
         <div>
           <p>
@@ -22,17 +20,15 @@
             <%= meeting.status.capitalize %>
           </p>
         </div>
-      </div>
+      </button>
       <%= render "show_meeting_modal", meeting: meeting %>
     <% end %>
     <% if meeting.status == 'accepted' %>
-      <div class="card-meeting-accepted">
+      <button class="card-meeting-accepted" type="button" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
         <div>
-          <h5>
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
-              <%= meeting.name %>
-            </button>
-          </h5>
+          <p style="color:white">
+            <%= meeting.name %>
+          </p>
         </div>
         <div>
           <p>
@@ -45,17 +41,15 @@
             <%= meeting.status.capitalize %>
           </p>
         </div>
-      </div>
+      </button>
       <%= render "show_meeting_modal", meeting: meeting %>
     <% end %>
     <% if meeting.status == 'declined' %>
-      <div class="card-meeting-declined">
+      <button class="card-meeting-declined" type="button" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
         <div>
-          <h5>
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-<%= meeting.id %>">
+            <p style="color:white">
               <%= meeting.name %>
-            </button>
-          </h5>
+            </p>
         </div>
         <div>
           <p>

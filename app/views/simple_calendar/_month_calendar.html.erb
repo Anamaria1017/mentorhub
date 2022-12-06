@@ -10,13 +10,15 @@
     <div class="simple-calendar">
       <div class="calendar-heading">
         <div class="calendar-link">
-          <%= link_to t('simple_calendar.previous', default: '<'),
-          calendar.url_for_previous_view %>
+          <%= link_to calendar.url_for_previous_view do %>
+            <i class="fa-solid fa-chevron-left"></i>
+          <% end %>
         </div>
         <span class="h2 calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year%></span>
         <div class="calendar-link">
-        <%= link_to t('simple_calendar.next', default: '>'),
-        calendar.url_for_next_view %>
+        <%= link_to calendar.url_for_next_view do %>
+          <i class="fa-solid fa-chevron-right"></i>
+        <% end %>
         </div>
       </div>
 
