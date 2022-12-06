@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning database..."
+Like.destroy_all
 Chatroom.destroy_all
 Match.destroy_all
 Profile.destroy_all
@@ -23,11 +24,11 @@ mentee_erick = Profile.create!(first_name: "Erick", last_name: "Gonzales", usern
 
 user_chloe = User.create!(email: "chloe@hotmail.com", password: "Pedro1234", mentor: false)
 
-mentee_chloe = Profile.create!(first_name: "Chloe", last_name: "Bowers", username: "Chlo", city: "Frankfurt", highest_education: "Master", edu_organization: "ESMT",  working_experience: "1-2 years", position: "Associate", target_industry: "Education", preferred_language: "German", type_of_meeting: "online", user: user_chloe)
+mentee_chloe = Profile.create!(first_name: "Chloe", last_name: "Bowers", username: "Chlo", city: "Frankfurt", highest_education: "Master", edu_organization: "ESMT",  working_experience: "1-2 years", position: "Associate", target_industry: "Education Management", preferred_language: "German", type_of_meeting: "online", user: user_chloe)
 
 user_nicola = User.create!(email: "nicola@hotmail.com", password: "Pedro1234", mentor: false)
 
-mentee_nicola = Profile.create!(first_name: "Nicola", last_name: "Hoffman", username: "Nico", city: "Frankfurt", highest_education: "PhD", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Associate", target_industry: "Education", preferred_language: "Managing Principal", type_of_meeting: "online", user: user_nicola)
+mentee_nicola = Profile.create!(first_name: "Nicola", last_name: "Hoffman", username: "Nico", city: "Frankfurt", highest_education: "PhD", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Associate", target_industry: "Education Management", preferred_language: "Managing Principal", type_of_meeting: "online", user: user_nicola)
 
 puts "Creating mentors"
 
@@ -37,7 +38,7 @@ mentor = Profile.create!(first_name: "Ulrich", last_name: "Meister", username: "
 
 user_sandra = User.create!(email: "sandra@hotmail.com", password: "Pedro1234", mentor: true)
 
-mentor = Profile.create!(first_name: "Sandra", last_name: "Müller", username: "Sandi", position: "Partner", city: "Frankfurt", highest_education: "Master", target_industry: "Education", preferred_language: "German", type_of_meeting: "online", user: user_sandra)
+mentor_sandra = Profile.create!(first_name: "Sandra", last_name: "Müller", username: "Sandi", position: "Partner", city: "Frankfurt", highest_education: "Master", target_industry: "Education Management", preferred_language: "German", type_of_meeting: "online", user: user_sandra)
 
 # unmatch_52 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id, match: false)
 

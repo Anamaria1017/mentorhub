@@ -68,12 +68,11 @@
 }
 
 .card-btn {
-  padding-top: 10px;
+  // padding-top: 10px;
   display: flex;
-  position: absolute;
-  right: 76px;
-  top: 219px;
-  width: 100px;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 30px;
   gap: 25px;
 }
 
