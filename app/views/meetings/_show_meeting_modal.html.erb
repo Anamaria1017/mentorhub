@@ -2,17 +2,52 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><%= meeting.name %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <h3 class="card-text card-badge">
+        <% if meeting.status == 'pending' %>
+          <span class="badge badge-secondary"><%= meeting.status.capitalize %></span>
+        <% end %>
+        <% if meeting.status == 'accepted' %>
+          <span class="badge badge-success"><%= meeting.status.capitalize %></span>
+        <% end %>
+        <% if meeting.status == 'declined' %>
+          <span class="badge badge-danger"><%= meeting.status.capitalize %></span>
+        <% end %>
+        </h3>
+        <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=meeting.start_time.strftime('%Y-%m-%d, at %H:%M') %> - <%=meeting.end_time.strftime('%H:%M')%></p>
+        <p class="card-text">Location: <%=meeting.location%></p>
       </div>
       <div class="modal-footer">
+        <% if current_user.profile != meeting.profile %>
+          <div class = "action-buttons">
+            <% if meeting.profile != current_user.profile && meeting.status == 'pending' %>
+              <%= link_to meeting_path(meeting, status: 1), data: { turbo_method: :patch } do %>
+                <i class="fa-regular fa-calendar-check" style="
+                  color: black;
+                  font-size: 22px;"></i>
+              <% end %>
+            <% end %>
+            <% if meeting.profile != current_user.profile && meeting.status == 'pending' %>
+              <%= link_to meeting_path(meeting, status: 2), data: { turbo_method: :patch } do %>
+                <i class="fa-regular fa-calendar-xmark" style="
+                  color: black;
+                  font-size: 22px;"></i>
+              <% end %>
+            <% end %>
+        <% end %>
+        <% if current_user.profile == meeting.profile %>
+            <%= link_to meeting_path(meeting), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete meeting?"} do %>
+              <i class="fa-regular fa-trash-can" style="
+                color: black;
+                font-size: 22px;"></i>
+            <% end %>
+        <% end %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

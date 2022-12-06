@@ -6,15 +6,18 @@
       <div class="card-meeting-pending">
         <div>
           <h5>
-            <%= link_to meeting.name, meeting %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <%= meeting.name %>
+            </button>
+            <%= render "show_meeting_modal", meeting: meeting %>
           </h5>
         </div>
         <div>
           <p>
-            At: <%= meeting.start_time.strftime('%I:%M') %>
+            At: <%= meeting.start_time.strftime('%H:%M') %>
           </p>
           <p>
-            Till: <%= meeting.end_time.strftime('%I:%M') %>
+            Till: <%= meeting.end_time.strftime('%H:%M') %>
           </p>
           <p>
             <%= meeting.location %>
@@ -37,10 +40,10 @@
         </div>
         <div>
           <p>
-            At: <%= meeting.start_time.strftime('%I:%M') %>
+            At: <%= meeting.start_time.strftime('%H:%M') %>
           </p>
           <p>
-            Till: <%= meeting.end_time.strftime('%I:%M') %>
+            Till: <%= meeting.end_time.strftime('%H:%M') %>
           </p>
           <p>
             <%= meeting.location %>
@@ -55,15 +58,18 @@
       <div class="card-meeting-declined">
         <div>
           <h5>
-            <%= link_to meeting.name, meeting %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <%= meeting.name %>
+            </button>
+            <%= render "show_meeting_modal", meeting: meeting %>
           </h5>
         </div>
         <div>
           <p>
-            At: <%= meeting.start_time.strftime('%I:%M') %>
+            At: <%= meeting.start_time.strftime('%H:%M') %>
           </p>
           <p>
-            Till: <%= meeting.end_time.strftime('%I:%M') %>
+            Till: <%= meeting.end_time.strftime('%H:%M') %>
           </p>
           <p>
             <%= meeting.location %>
