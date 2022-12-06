@@ -86,3 +86,4 @@ gem "ruby-lsp", "~> 0.3.6", :group => :development
 
 
 gem "cloudinary"
+gem "down"

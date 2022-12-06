@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     else
       @like.update!(liked: true)
     end
-    redirect_to matches_path
+    redirect_back(fallback_location: matches_path)
   end
 
   private
