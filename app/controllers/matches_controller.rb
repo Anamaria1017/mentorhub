@@ -5,8 +5,10 @@ class MatchesController < ApplicationController
   def index
     @profile = Profile.find(current_user.profile.id)
     @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true)
-    @matches = @matches.select { |match| match.like.liked? } if params[:status] == "liked"
-    if params[:status] == "new_matches"
+
+    if params[:status] == "liked"
+      @matches = @matches.select { |match| match.like.liked? }
+    elsif params[:status] == "new_matches"
       @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true, created_at: Time.current.all_day)
     end
   end

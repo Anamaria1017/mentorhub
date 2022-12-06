@@ -28,6 +28,7 @@ mentee_chloe = Profile.create!(first_name: "Chloe", last_name: "Bowers", usernam
 
 user_nicola = User.create!(email: "nicola@hotmail.com", password: "Pedro1234", mentor: false)
 
+
 mentee_nicola = Profile.create!(first_name: "Nicola", last_name: "Hoffman", username: "Nico", city: "Frankfurt", highest_education: "PhD", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Associate", target_industry: "Education Management", preferred_language: "German", type_of_meeting: "online", user: user_nicola)
 
 user_hans = User.create!(email: "paul@hotmail.com", password: "Pedro1234", mentor: false)
@@ -81,6 +82,7 @@ mentee_clara = Profile.create!(first_name: "Clara", last_name: "Schulze", userna
 user_sunny = User.create!(email: "sunny@hotmail.com", password: "Pedro1234", mentor: false)
 
 mentee_sunny = Profile.create!(first_name: "Sunny", last_name: "Bremer", username: "Sunny", city: "Berlin", highest_education: "Bachelor", edu_organization: "HAW Hamburg",  working_experience: "1-2 years", position: "Associate", target_industry: "Design", preferred_language: "German", type_of_meeting: "online", user: user_sunny)
+
 
 puts "Creating mentors"
 
