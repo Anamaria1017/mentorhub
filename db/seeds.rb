@@ -40,6 +40,21 @@ user_sandra = User.create!(email: "sandra@hotmail.com", password: "Pedro1234", m
 
 mentor_sandra = Profile.create!(first_name: "Sandra", last_name: "Müller", username: "Sandi", position: "Partner", city: "Frankfurt", highest_education: "Master", target_industry: "Education Management", preferred_language: "German", type_of_meeting: "online", user: user_sandra)
 
+user_john = User.create!(email: "john@hotmail.com", password: "Pedro1234", mentor: true)
+
+mentor_john = Profile.create!(first_name: "John", last_name: "Smith", username: "John", position: "Partner", city: "Hamburg", highest_education: "Highschool", target_industry: "Education Management", preferred_language: "English", type_of_meeting: "online", user: user_john)
+
+user_elizabeth = User.create!(email: "elizabeth@hotmail.com", password: "Pedro1234", mentor: true)
+
+mentor_elizabeth = Profile.create!(first_name: "Elizabeth", last_name: "King", username: "Lizzie", position: "Associate", city: "Berlin", highest_education: "Bachelor", target_industry: "Public Sector", preferred_language: "German", type_of_meeting: "online", user: user_elizabeth)
+
+user_william = User.create!(email: "william@hotmail.com", password: "Pedro1234", mentor: true)
+
+mentor_william = Profile.create!(first_name: "William", last_name: "Jones", username: "Will", position: "Partner", city: "Frankfurt", highest_education: "PHD", target_industry: "Health", preferred_language: "English", type_of_meeting: "online", user: user_william)
+
+user_jennifer = User.create!(email: "jennifer@hotmail.com", password: "Pedro1234", mentor: true)
+
+mentor_jennifer = Profile.create!(first_name: "Jennifer", last_name: "Lopez", username: "Jennifer", position: "Consultant", city: "Berlin", highest_education: "High School", target_industry: "Public Sector", preferred_language: "Spanish", type_of_meeting: "online", user: user_jennifer)
 # unmatch_52 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id, match: false)
 
 puts "Creating match!"
