@@ -36,17 +36,17 @@ file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345
 mentee_nicola.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_hans = User.create!(email: "hans@hotmail.com", password: "Pedro1234", mentor: false)
-mentee_hans = Profile.create!(first_name: "Hans", last_name: "Meyer", username: "Hans", city: "München", highest_education: "High School",  working_experience: "3-5 years", position: "Associate", target_industry: "Hospitality", preferred_language: "German", type_of_meeting: "online", user: user_hans)
+mentee_hans = Profile.create!(first_name: "Hans", last_name: "Meyer", username: "Hans", city: "München", highest_education: "High School",  working_experience: "3-5 years", position: "Associate", target_industry: "Consulting", preferred_language: "German", type_of_meeting: "online", user: user_hans)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345937/hans_fwfr1r.jpg")
 mentee_hans.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_maria = User.create!(email: "maria@hotmail.com", password: "Pedro1234", mentor: false)
-mentee_maria = Profile.create!(first_name: "Maria", last_name: "Schmidt", username: "Maria", city: "München", highest_education: "Bachelor", edu_organization: "Berlin TU",  working_experience: "3-5 years", position: "Associate", target_industry: "Hospitality", preferred_language: "German", type_of_meeting: "online", user: user_maria)
+mentee_maria = Profile.create!(first_name: "Maria", last_name: "Schmidt", username: "Maria", city: "München", highest_education: "Bachelor", edu_organization: "Berlin TU",  working_experience: "3-5 years", position: "Consultant", target_industry: "Consulting", preferred_language: "German", type_of_meeting: "online", user: user_maria)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345939/maria_sb9kab.jpg")
 mentee_maria.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_steffanie = User.create!(email: "steffanie@hotmail.com", password: "Pedro1234", mentor: false)
-mentee_steffanie = Profile.create!(first_name: "Steffanie", last_name: "Kluge", username: "Steffi", city: "München", highest_education: "Bachelor", edu_organization: "Maximilians Universität",  working_experience: "1-2 years", position: "Associate", target_industry: "Hospitality", preferred_language: "German", type_of_meeting: "online", user: user_steffanie)
+mentee_steffanie = Profile.create!(first_name: "Steffanie", last_name: "Kluge", username: "Steffi", city: "München", highest_education: "Bachelor", edu_organization: "Maximilians Universität",  working_experience: "1-2 years", position: "Consultant", target_industry: "Consulting", preferred_language: "German", type_of_meeting: "online", user: user_steffanie)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345950/steffanie_lawtj5.webp")
 mentee_steffanie.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
@@ -68,7 +68,7 @@ mentee_grace = Profile.create!(first_name: "Grace", last_name: "Walker", usernam
 
 user_john = User.create!(email: "john@hotmail.com", password: "Pedro1234", mentor: false)
 mentee_john = Profile.create!(first_name: "John", last_name: "Smith", username: "John", city: "Berlin", highest_education: "Bachelor", edu_organization: "Berlin TU",  working_experience: "1-2 years", position: "Associate", target_industry: "Consulting", preferred_language: "English", type_of_meeting: "online", user: user_john)
-file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345937/hans_fwfr1r.jpg")
+file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670357683/hans_xoemjg.jpg")
 mentee_john.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_stella = User.create!(email: "stella@hotmail.com", password: "Pedro1234", mentor: false)
@@ -114,7 +114,7 @@ file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670350
 mentor_robert.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_sophie = User.create!(email: "sophie@hotmail.com", password: "Pedro1234", mentor: true)
-mentor_sophie = Profile.create!(first_name: "Sophie", last_name: "Stadler", username: "Sophie", position: "Managing Director", city: "München", highest_education: "Master", target_industry: "Hospitality", preferred_language: "German", type_of_meeting: "online", user: user_sophie)
+mentor_sophie = Profile.create!(first_name: "Sophie", last_name: "Stadler", username: "Sophie", position: "Managing Director", city: "München", highest_education: "Master", target_industry: "Consulting", preferred_language: "German", type_of_meeting: "online", user: user_sophie)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670350586/sophie_noul1m.jpg")
 mentor_sophie.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 

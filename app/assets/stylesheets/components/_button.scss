@@ -23,6 +23,25 @@
   font-weight: bold;
 }
 
+.yellow-button {
+  background-color: #efe70d;
+  border: none;
+  color: rgb(59, 57, 57);
+  padding: 9px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.yellow-button:hover {
+  text-decoration: none;
+  color: rgb(59, 57, 57);
+  background-color: #d8d20e;
+}
+
 .purple-button:hover {
   text-decoration: none;
   color: white;
