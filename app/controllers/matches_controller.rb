@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
     @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true)
 
     if params[:status] == "liked"
-    @matches = @matches.select { |match| match.like.liked? }
+      @matches = @matches.select { |match| match.like.liked? }
     elsif params[:status] == "new_matches"
       @matches = Match.where(mentor_id: @profile.id).or(Match.where(mentee_id: @profile.id)).where(match: true, created_at: Time.current.all_day)
     end
