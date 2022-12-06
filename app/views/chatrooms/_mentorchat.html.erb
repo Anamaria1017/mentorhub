@@ -1,29 +1,31 @@
 <div class="row rounded-lg overflow-hidden shadow container">
   <div class="row">
     <div class="col-5 px-0">
-        <h1> Recent messages</h1>
+        <h2> Recent messages</h2>
         <ul class="list-group">
           <% @chatrooms.each do |chatroom| %>
             <li class="list-group-item"> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
           <% end %>
         </ul>
     </div>
-      <div class="container chatroom col-8" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h1>Chat with <%= @chatroom.match.mentee.first_name %></h1>
-          <div class="messages" data-chatroom-subscription-target="messages">
-            <% @chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
-            <% end %>
-          </div>
-          <%= simple_form_for [@chatroom, @message],
-          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Write your message here...",
-            wrapper_html: {class: "flex-grow-1"}
-          %>
-          <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+    <div class="container chatroom col-8"
+          data-controller="chatroom-subscription"
+          data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+      <h2>Chat with <%= @chatroom.match.mentee.first_name %></h2>
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
           <% end %>
-      </div>
+        </div>
+        <%= simple_form_for [@chatroom, @message],
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Write your message here...",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+          <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+        <% end %>
     </div>
   </div>
+</div>

@@ -1,7 +1,13 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.profile.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div id="message-<%= message.id %>" class="<%= message.profile.user == current_user ? 'author' : 'receiver' %>">
+  <div class="d-flex <%= 'justify-content-end' if message.profile.user == current_user %>">
+    <% if current_user.profile.photo.attached? && message.profile.user != current_user %>
+      <%= cl_image_tag current_user.profile.photo.key, class: "avatar" %>
+    <% end %>
+    <div class="message-content">
+      <p><%= message.content %></p>
+    </div>
+    <% if current_user.profile.photo.attached? && message.profile.user == current_user %>
+      <%= cl_image_tag current_user.profile.photo.key, class: "avatar" %>
+    <% end %>
+  </div>
 </div>
