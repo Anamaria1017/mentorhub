@@ -41,7 +41,7 @@ class MeetingsController < ApplicationController
     elsif params[:status] == "2"
       @meeting.update!(status: 2)
       flash[:error] = "Meeting was declined"
-      redirect_to meeting_path(@meeting)
+      redirect_to meetings_path
     end
   end
 
