@@ -1,5 +1,6 @@
 .calendar-heading {
   display: flex;
+  justify-content: center;
 }
 
 .calendar-title {
@@ -16,4 +17,29 @@
     color: #794ffa;
     text-align: center;
   }
+}
+
+.simple-calendar {
+  margin-right: 50px;
+  margin-bottom: 200px;
+}
+
+
+#pending {
+  color: #C8B6FF;
+
+}
+
+#accepted {
+  color: #794ffa;
+}
+
+#declined {
+  color: #C8B6FF;
+  opacity: 0.4;
+}
+
+.col-3 {
+  margin-top: 100px;
+  font-size: large;
 }
