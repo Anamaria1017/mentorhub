@@ -28,7 +28,23 @@ mentee_chloe = Profile.create!(first_name: "Chloe", last_name: "Bowers", usernam
 
 user_nicola = User.create!(email: "nicola@hotmail.com", password: "Pedro1234", mentor: false)
 
-mentee_nicola = Profile.create!(first_name: "Nicola", last_name: "Hoffman", username: "Nico", city: "Frankfurt", highest_education: "PhD", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Associate", target_industry: "Education Management", preferred_language: "Managing Principal", type_of_meeting: "online", user: user_nicola)
+mentee_nicola = Profile.create!(first_name: "Nicola", last_name: "Hoffman", username: "Nico", city: "Frankfurt", highest_education: "PhD", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Associate", target_industry: "Education Management", preferred_language: "English", type_of_meeting: "online", user: user_nicola)
+
+user_kate = User.create!(email: "kate@hotmail.com", password: "Pedro1234", mentor: false)
+
+mentee_kate = Profile.create!(first_name: "Kate", last_name: "Middleton", username: "Kate", city: "Hamburg", highest_education: "High School", edu_organization: "Cambridge",  working_experience: "1-2 years", position: "Partner", target_industry: "Health", preferred_language: "English", type_of_meeting: "online", user: user_kate)
+
+user_harry = User.create!(email: "harry@hotmail.com", password: "Pedro1234", mentor: false)
+
+mentee_harry = Profile.create!(first_name: "Harry", last_name: "Prince", username: "Harry", city: "Munich", highest_education: "Bachelor", edu_organization: "Oxford",  working_experience: "4-5 years", position: "Associate", target_industry: "Hospitality", preferred_language: "German", type_of_meeting: "online", user: user_harry)
+
+user_winnie = User.create!(email: "winnie@hotmail.com", password: "Pedro1234", mentor: false)
+
+mentee_winnie = Profile.create!(first_name: "Winnie", last_name: "Bengal", username: "Winnie", city: "Berlin", highest_education: "High School", edu_organization: "ESMT",  working_experience: "0 years", position: "nil", target_industry: "Entertainment", preferred_language: "English", type_of_meeting: "online", user: user_winnie)
+
+user_isabelle = User.create!(email: "izzy@hotmail.com", password: "Pedro1234", mentor: false)
+
+mentee_isabelle = Profile.create!(first_name: "Isabelle", last_name: "Black", username: "Izzy", city: "Hamburg", highest_education: "Bachelor", edu_organization: "ESMT",  working_experience: "4-5 years", position: "Intern", target_industry: "Business", preferred_language: "English", type_of_meeting: "online", user: user_isabelle)
 
 puts "Creating mentors"
 
