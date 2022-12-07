@@ -6,23 +6,29 @@
 .col-3 {
   border: #acabae;
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   margin-top: 30px;
   font-size: large;
   height: fit-content;
+
+  p {
+    font-size: 24px;
+    text-decoration: underline;
+  }
 }
 
 .calendar-title {
   margin: 0 10px;
   align-self: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .calendar-link {
   a {
     all: unset;
     cursor: pointer;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 24px;
     color: #794ffa;
     text-align: center;
   }

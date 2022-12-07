@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-3 container">
-    <h2>Status Key</h2>
+    <p>Status Key</p>
     <i id="pending" class="fa-solid fa-circle"></i> Pending<br>
     <i id="accepted" class="fa-solid fa-circle"></i> Accepted<br>
     <i id="declined" class="fa-solid fa-circle"></i> Declined
@@ -10,13 +10,13 @@
       <div class="calendar-heading">
         <div class="calendar-link">
           <%= link_to calendar.url_for_previous_view do %>
-            <small><i class="fa-solid fa-chevron-left"></i></small>
+            <i class="fa-solid fa-chevron-left"></i>
           <% end %>
         </div>
-        <span class="h2 calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year%></span>
+        <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year%></span>
         <div class="calendar-link">
         <%= link_to calendar.url_for_next_view do %>
-          <small><i class="fa-solid fa-chevron-right"></i></small>
+          <i class="fa-solid fa-chevron-right"></i>
         <% end %>
         </div>
       </div>
