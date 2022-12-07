@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <h3 class="card-text card-badge">
+        <p class="card-text card-badge">
         <% if meeting.status == 'pending' %>
           <span class="badge badge-secondary"><%= meeting.status.capitalize %></span>
         <% end %>
@@ -18,7 +18,7 @@
         <% if meeting.status == 'declined' %>
           <span class="badge badge-danger"><%= meeting.status.capitalize %></span>
         <% end %>
-        </h3>
+        </p>
         <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=meeting.start_time.strftime('%Y-%m-%d, at %H:%M') %> - <%=meeting.end_time.strftime('%H:%M')%></p>
         <p class="card-text">Location: <%=meeting.location%></p>
       </div>
