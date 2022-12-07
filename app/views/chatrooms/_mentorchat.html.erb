@@ -4,14 +4,14 @@
         <h2> Recent messages</h2>
         <ul class="list-group">
           <% @chatrooms.each do |chatroom| %>
-            <li class="list-group-item"> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
+            <li class="list-group-item"> <%= cl_image_tag chatroom.match.mentee.photo.key, class: "avatar" %> <%= link_to chatroom.match.mentee.first_name, chatrooms_path(chat: chatroom.id) %> </li>
           <% end %>
         </ul>
     </div>
     <div class="container chatroom col-9"
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-      <h2>Chat with <%= @chatroom.match.mentee.first_name %></h2>
+      <h2 class="chat-with">Chat with <%= @chatroom.match.mentee.first_name %></h2>
         <div class="messages" data-chatroom-subscription-target="messages">
           <% @chatroom.messages.each do |message| %>
           <%= render "messages/message", message: message %>
