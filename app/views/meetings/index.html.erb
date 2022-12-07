@@ -11,12 +11,9 @@
         </div>
         <div>
           <p>
+            Meeting with: <%= meeting.profile.first_name %> <br>
             At: <%= meeting.start_time.strftime('%H:%M') %>
-          </p>
-          <p>
-            Till: <%= meeting.end_time.strftime('%H:%M') %>
-          </p>
-          <p>
+            Till: <%= meeting.end_time.strftime('%H:%M') %> <br>
             <%= meeting.status.capitalize %>
           </p>
         </div>
