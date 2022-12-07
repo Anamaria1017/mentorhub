@@ -31,8 +31,16 @@
   color: #794FFA;
 }
 
+.card img {
+  width: 150px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover
+}
+
 .card h5 {
   color: #7e7d81;
+  // color: hsl(60, 77%, 52%);
 }
 
 .cards a {
@@ -68,7 +76,6 @@
 }
 
 .card-btn {
-  // padding-top: 10px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -79,8 +86,11 @@
 .show-card-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
   color: #794FFA;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 30px;
+  gap: 25px;
 }
 
 .cards-match {
@@ -89,6 +99,11 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 30px;
+}
+
+.cards-match a {
+  color: #794FFA;
+  text-decoration: none;
 }
 
 .card-match {
@@ -102,8 +117,22 @@
   padding-bottom: 30px;
 }
 
+.card-match img {
+  width: 220px;
+  height: 188px;
+  border-radius: 50%;
+  object-fit: cover
+}
+
 .card-match-info {
   padding-top: 20px;
+}
+
+.card-match-infos a {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+  text-align: center;
 }
 
 .card-match h3 {

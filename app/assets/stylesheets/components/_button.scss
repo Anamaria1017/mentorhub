@@ -23,6 +23,25 @@
   font-weight: bold;
 }
 
+.yellow-button {
+  background-color: #efe70d;
+  border: none;
+  color: rgb(59, 57, 57);
+  padding: 9px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.yellow-button:hover {
+  text-decoration: none;
+  color: rgb(59, 57, 57);
+  background-color: #d8d20e;
+}
+
 .purple-button:hover {
   text-decoration: none;
   color: white;
@@ -31,4 +50,22 @@
 
 .buttons-box {
   gap: 10px;
+}
+
+.purple-button-outline {
+  background-color: white;
+  border: 1.5px solid #C8B6FF;
+  color: rgb(53, 51, 51);
+  padding: 9px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.purple-button-outline:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #aa91f7;
 }
