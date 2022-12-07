@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container col-4 py-3">
   <h2 py-3>Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
@@ -14,15 +14,11 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+      <%= f.button :submit, "Log in", class: "purple-button" %>
     </div>
   <% end %>
-
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: "purple-button" %>
-<% end %>
-<br>
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "purple-button" %>
-<% end %>
+  <br>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "purple-button" %>
+  <% end %>
 </div>

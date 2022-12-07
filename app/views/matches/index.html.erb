@@ -40,8 +40,8 @@
               </div>
             </div>
           <div class="card-infos py-3">
-            <p>Last role: <%= match.mentor.position %></p>
-            <p>Industry: <%= match.mentor.target_industry %></p>
+            <p> <strong>Last role: </strong> <%= match.mentor.position %></p>
+            <p><strong>Industry: </strong> <%= match.mentor.target_industry %></p>
             <div class="row p-3">
               <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button col-6" %>
               <div class="card-btn card-btn col-6">
@@ -80,8 +80,8 @@
             </div>
           </div>
           <div class="card-infos py-3">
-            <p> Last role: <%= match.mentee.position %></p>
-            <p>Industry: <%= match.mentee.target_industry %></p>
+            <p> <strong>Last role: </strong> <%= match.mentee.position %></p>
+            <p> <strong>Industry: </strong> <%= match.mentee.target_industry %></p>
             <div class="row p-3">
               <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button col-6" %>
               <div class="card-btn col-6">

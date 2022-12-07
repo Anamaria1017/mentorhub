@@ -8,6 +8,8 @@
   display: inline-block;
   font-size: 16px;
   border-radius: 5px;
+  height: 41px;
+  width: auto;
 }
 
 .dark-button {
@@ -24,8 +26,9 @@
 }
 
 .yellow-button {
-  background-color: #efe70d;
+  background-color: #F7DC4A;
   border: none;
+  font-weight: lighter;
   color: rgb(59, 57, 57);
   padding: 9px 20px;
   text-align: center;
@@ -34,12 +37,13 @@
   font-size: 16px;
   border-radius: 5px;
   font-weight: bold;
+  height: 41px;
 }
 
 .yellow-button:hover {
   text-decoration: none;
   color: rgb(59, 57, 57);
-  background-color: #d8d20e;
+  background-color: #dfc637;
 }
 
 .purple-button:hover {
