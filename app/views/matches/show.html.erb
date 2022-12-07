@@ -28,7 +28,7 @@
           <% unless @match.mentor.preferred_language.blank? %><p><strong>Preferred meeting language: </strong> <%= @match.mentor.preferred_language%></p><% end %>
           <% unless @match.mentor.type_of_meeting.blank? %><p><strong>Preferred type of meeting: </strong> <%= @match.mentor.type_of_meeting.capitalize%></p><% end %>
           <% unless @match.mentor.proximity_preference.blank? %><p><strong>Preferred proximity </strong><%= @match.mentor.proximity_preference%></p><% end %>
-          <% unless @match.mentor.bio.blank? %><p>About me: <%= @match.mentor.bio%></p><% end %>
+          <% unless @match.mentor.bio.blank? %><p style="padding-right: 51px;"><strong>About me: </strong> <%= @match.mentor.bio%></p><% end %>
         </div>
         <div class="row p-3 justify-content-between">
           <%= link_to "Send invite", new_match_meeting_path(@match), class: "purple-button ml-4"%>
@@ -79,7 +79,7 @@
               <% unless @match.mentee.preferred_language.blank? %><p><strong>Preferred meeting language: </strong><%= @match.mentee.preferred_language%></p><% end %>
               <% unless @match.mentee.type_of_meeting.blank? %><p><strong>Preferred type of meeting: </strong> <%= @match.mentee.type_of_meeting.capitalize%></p><% end %>
               <% unless @match.mentee.proximity_preference.blank? %><p><strong>Preferred proximity: </strong> <%= @match.mentee.proximity_preference%></p><% end %>
-              <% unless @match.mentee.bio.blank? %><p><strong>About me: </strong> <%= @match.mentee.bio%></p><% end %>
+              <% unless @match.mentee.bio.blank? %><p style="padding-right: 51px;"><strong>About me: </strong> <%= @match.mentee.bio%></p><% end %>
           </div>
             <div class="row p-3 justify-content-between">
               <%= link_to "Send invite", new_match_meeting_path(@match), class: "purple-button ml-4"%>
