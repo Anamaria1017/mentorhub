@@ -3,8 +3,12 @@ a {
   color: #646464;
 }
 
+.fa-paper-plane {
+  font-size: 24px;
+}
 #recent {
-  margin-top: 25px;
+  margin-top: 20px;
+  color: #794FFA;
 }
 
 .fa-paper-plane::before {
@@ -12,7 +16,8 @@ a {
 }
 .chatroom {
   background: white;
-  margin-top: 9px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -23,6 +28,7 @@ a {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    color:#794FFA;
   }
 
   .messages {

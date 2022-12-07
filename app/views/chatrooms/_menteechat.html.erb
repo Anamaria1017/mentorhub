@@ -10,7 +10,7 @@
           </ul>
       </div>
       <div class="container chatroom col-9" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h2>Chat with <%= @chatroom.match.mentor.first_name %></h2>
+        <h2 class="chat-with">Chat with <%= @chatroom.match.mentor.first_name %></h2>
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
