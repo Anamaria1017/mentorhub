@@ -8,7 +8,6 @@
               <li class="list-group-item"> <%= link_to chatroom.match.mentor.first_name, chatrooms_path(chat: chatroom.id) %> </li>
             <% end %>
           </ul>
-          <%= image_tag "8741.jpg" %>
       </div>
       <div class="container chatroom col-9" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         <h2>Chat with <%= @chatroom.match.mentor.first_name %></h2>
