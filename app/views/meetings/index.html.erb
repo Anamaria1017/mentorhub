@@ -11,8 +11,16 @@
         </div>
         <div>
           <p>
+          <% if current_user.profile != meeting.profile %>
             Meeting with: <%= meeting.profile.first_name %> <br>
-            At: <%= meeting.start_time.strftime('%H:%M') %>
+          <% end %>
+          <% if current_user.profile == meeting.profile &&  current_user.profile.mentor == true %>
+            Meeting with: <%= meeting.match.mentee.first_name %> <br>
+          <% end %>
+          <% if current_user.profile == meeting.profile &&  current_user.profile.mentor == false %>
+            Meeting with: <%= meeting.match.mentor.first_name %> <br>
+          <% end %>
+            At: <%= meeting.start_time.strftime('%H:%M') %> <br>
             Till: <%= meeting.end_time.strftime('%H:%M') %> <br>
             <%= meeting.status.capitalize %>
           </p>
