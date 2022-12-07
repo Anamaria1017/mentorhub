@@ -16,7 +16,7 @@ User.destroy_all
 puts "Creating mentees"
 
 user = User.create!(email: "anita@hotmail.com", password: "Pedro1234", mentor: false)
-mentee = Profile.create!(first_name: "Ana", last_name: "Castaneda", username: "Anita", city: "Berlin", highest_education: "Master", edu_organization: "ESMT",  working_experience: "3-5 years", position: "Senior Consultant", target_industry: "Consulting", preferred_language: "Spanish", type_of_meeting: "online", user: user)
+mentee = Profile.create!(first_name: "Ana", last_name: "Castaneda", username: "Anita", city: "Berlin", highest_education: "Master", edu_organization: "ESMT",  working_experience: "3-5 years", position: "Associate", target_industry: "Consulting", preferred_language: "Spanish", type_of_meeting: "online", user: user)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670343670/ana_mlp2ip.png")
 mentee.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 

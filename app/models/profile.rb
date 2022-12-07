@@ -22,8 +22,9 @@ class Profile < ApplicationRecord
       match.meetings.delete_all
     end
     matches_as_mentor.destroy_all
+
     if proximity_preference == "Same city"
-      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city, proximity_preference: proximity_preference}, users: { mentor: false })
+      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city}, users: { mentor: false })
       matching_profiles.each { |profile| match = Match.create(mentee_id: profile.id, mentor_id: id) }
     else
       matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry}, users: { mentor: false })
@@ -38,11 +39,12 @@ class Profile < ApplicationRecord
       match.meetings.delete_all
     end
     matches_as_mentee.destroy_all
+
     if proximity_preference == "Same city"
-      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city,proximity_preference: proximity_preference }, users: { mentor: true })
+      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city  }, users: { mentor: true })
       matching_profiles.each { |profile| match = Match.create(mentee_id: id, mentor_id: profile.id) }
     else
-      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry, city: city }, users: { mentor: true })
+      matching_profiles = Profile.joins(:user).where(profiles: { target_industry: target_industry }, users: { mentor: true })
       matching_profiles.each { |profile| match = Match.create(mentee_id: id, mentor_id: profile.id) }
     end
   end
