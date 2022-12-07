@@ -3,6 +3,15 @@
   justify-content: center;
 }
 
+.col-3 {
+  border: #acabae;
+  background-color: white;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: large;
+  height: fit-content;
+}
+
 .calendar-title {
   margin: 0 10px;
   align-self: center;
@@ -22,6 +31,8 @@
 .simple-calendar {
   margin-right: 50px;
   margin-bottom: 150px;
+  margin-top: 30px;
+  background-color: white;
 }
 
 
@@ -37,11 +48,6 @@
 #declined {
   color: #acabae;
   opacity: 0.4;
-}
-
-.col-3 {
-  margin-top: 100px;
-  font-size: large;
 }
 
 .prev-month {
