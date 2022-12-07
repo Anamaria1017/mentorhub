@@ -26,7 +26,7 @@
 }
 
 .yellow-button {
-  background-color: #F7DC4A;
+  background-color: #f1d328;
   border: none;
   font-weight: lighter;
   color: rgb(59, 57, 57);
@@ -38,12 +38,13 @@
   border-radius: 5px;
   font-weight: bold;
   height: 41px;
+  width: auto;
 }
 
 .yellow-button:hover {
   text-decoration: none;
   color: rgb(59, 57, 57);
-  background-color: #dfc637;
+  background-color: #d7bc22;
 }
 
 .purple-button:hover {

@@ -57,7 +57,7 @@ mentee_anne.photo.attach(io: file, filename: "test.png", content_type: "image/pn
 
 user_paul = User.create!(email: "paul@hotmail.com", password: "Pedro1234", mentor: false)
 mentee_paul = Profile.create!(first_name: "Paul", last_name: "Hansen", username: "Paul", city: "Hamburg", highest_education: "Bachelor", edu_organization: "HafenCity Universität",  working_experience: "3-5 years", position: "Associate", target_industry: "Architecture & Planning", preferred_language: "German", type_of_meeting: "online", user: user_paul)
-file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670345915/anne_t7xui4.jpg")
+file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670423380/paul_qf0bem.jpg")
 mentee_paul.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_max = User.create!(email: "max@hotmail.com", password: "Pedro1234", mentor: false)
