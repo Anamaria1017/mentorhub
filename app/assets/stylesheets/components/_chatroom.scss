@@ -3,17 +3,16 @@ a {
   color: #646464;
 }
 
-.fa-paper-plane {
-  font-size: 24px;
-}
-#recent {
-  margin-top: 20px;
-  color: #794FFA;
-}
-
 .fa-paper-plane::before {
   color: #794FFA;
+  font-size: 24px;
 }
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  }
 .chatroom {
   background: white;
   margin-top: 20px;
@@ -37,10 +36,6 @@ a {
     padding: 1rem;
   }
 
-  .avatar {
-  width: 40px;
-  height: 40px;
-}
   .author {
     .d-block {
       float: right;
@@ -55,7 +50,6 @@ a {
       margin-right: 10px;
       margin-bottom: 20px;
     }
-
   }
 
   .receiver {
@@ -69,7 +63,6 @@ a {
       margin-left: 10px;
       margin-bottom: 20px;
     }
-
   }
 
   #new_message {
