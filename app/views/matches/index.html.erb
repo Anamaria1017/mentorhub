@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mb-5">
 <div class ="row p-3">
-  <h1 class="col-6"> My Matches</h1>
+  <h1 class="col-6", style="color: #794FFA;"> My Matches</h1>
   <div class="py-2 col-6 dropdown d-flex flex-row-reverse">
     <button class="btn dark-button dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Filter by
@@ -83,7 +83,7 @@
             <p> <strong>Last role: </strong> <%= match.mentee.position %></p>
             <p> <strong>Industry: </strong> <%= match.mentee.target_industry %></p>
             <div class="row p-3">
-              <%= link_to "Send invite", new_match_meeting_path(match), class: "purple-button col-6", style: "color: rgb(59, 57, 57)"%>
+              <%= link_to "Send invite", new_match_meeting_path(match), class: "yellow-button col-6", style: "color: rgb(59, 57, 57)"%>
               <div class="card-btn col-6">
                 <%= link_to match_path(match, match: false), data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to delete match?"} do %>
                   <i class="fa-solid fa-ban"></i>
