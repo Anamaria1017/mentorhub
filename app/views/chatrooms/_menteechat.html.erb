@@ -1,15 +1,15 @@
 
   <div class="row rounded-lg overflow-hidden shadow container">
     <div class="row">
-      <div id="recent" class="col-3">
-          <h2> Recent messages</h2>
+      <div id="recent rounded-lg overflow-hidden shadow container" class="col-3 mt-3">
+          <h2 style="color: #794ffa;"> Recent messages</h2>
           <ul class="list-group">
             <% @chatrooms.each do |chatroom| %>
               <li class="list-group-item"> <%= cl_image_tag chatroom.match.mentor.photo.key, class: "avatar" %> <%= link_to chatroom.match.mentor.first_name, chatrooms_path(chat: chatroom.id) %> </li>
             <% end %>
           </ul>
       </div>
-      <div class="container chatroom col-9" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+      <div class="container chatroom col-9 rounded-lg overflow-hidden shadow container" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         <h2 class="chat-with">Chat with <%= @chatroom.match.mentor.first_name %></h2>
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @chatroom.messages.each do |message| %>
@@ -25,7 +25,6 @@
           %>
           <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
           <% end %>
-
       </div>
     </div>
   </div>
