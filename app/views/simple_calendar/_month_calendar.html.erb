@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-3 container">
-    <p>Status Key</p>
+  <div class="col-3 container rounded-lg overflow-hidden shadow container">
+    <p style="font-family: 'DM Serif Display', serif; color: #794ffa">Meeting Status</p>
     <i id="pending" class="fa-solid fa-circle"></i> Pending<br>
     <i id="accepted" class="fa-solid fa-circle"></i> Accepted<br>
     <i id="declined" class="fa-solid fa-circle"></i> Declined
@@ -13,7 +13,7 @@
             <i class="fa-solid fa-chevron-left"></i>
           <% end %>
         </div>
-        <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year%></span>
+        <span class="calendar-title" style="font-family: 'DM Serif Display', serif; color: #794ffa"><%= t('date.month_names')[start_date.month] %> <%= start_date.year%></span>
         <div class="calendar-link">
         <%= link_to calendar.url_for_next_view do %>
           <i class="fa-solid fa-chevron-right"></i>
@@ -22,7 +22,7 @@
       </div>
 
       <table class="table">
-        <thead>
+        <thead style="background-color: #fff2a7;">
           <tr>
             <% date_range.slice(0, 7).each do |day| %>
             <th><%= t('date.abbr_day_names')[day.wday] %></th>
