@@ -124,7 +124,7 @@ file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670350
 mentor_stefan.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 user_birgit = User.create!(email: "birgit@hotmail.com", password: "Pedro1234", mentor: true)
-mentor_birgit = Profile.create!(first_name: "Birgit", last_name: "Gockel", username: "Birgit", position: "Partner", city: "Berlin", highest_education: "Master", target_industry: "Design", preferred_language: "German", type_of_meeting: "online", user: user_birgit)
+mentor_birgit = Profile.create!(first_name: "Birgit", last_name: "Gockel", username: "Birgit", position: "Partner", city: "Berlin", highest_education: "Master", target_industry: "Consulting", preferred_language: "German", type_of_meeting: "online", user: user_birgit)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670350578/birgit_gpvnxj.jpg")
 mentor_birgit.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
@@ -132,6 +132,11 @@ user_lars = User.create!(email: "lars@hotmail.com", password: "Pedro1234", mento
 mentor_lars = Profile.create!(first_name: "Lars", last_name: "Johanson", username: "Lars", position: "Partner", city: "Hamburg", highest_education: "Master", target_industry: "Design", preferred_language: "English", type_of_meeting: "online", user: user_lars)
 file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670350579/lars_xoxqdr.jpg")
 mentor_lars.photo.attach(io: file, filename: "test.png", content_type: "image/png")
+
+user_ursula = User.create!(email: "ursula@hotmail.com", password: "Pedro1234", mentor: true)
+mentor_ursula = Profile.create!(first_name: "Ursula", last_name: "Martin", username: "Ursula", position: "Managing Director", city: "Hamburg", highest_education: "Master", target_industry: "Consulting", preferred_language: "English", type_of_meeting: "online", user: user_ursula)
+file = Down.download("https://res.cloudinary.com/dvauxokiu/image/upload/v1670496724/ursula_becs0f.jpg")
+mentor_ursula.photo.attach(io: file, filename: "test.png", content_type: "image/png")
 
 # unmatch_52 = Match.create!(mentor_id: mentor.id, mentee_id: mentee.id, match: false)
 
