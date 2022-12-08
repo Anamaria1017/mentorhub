@@ -18,6 +18,7 @@ class Profile < ApplicationRecord
   def find_mentees
     matches_as_mentor.each do |match|
       Like.where(match_id: match.id).delete_all
+      match.chatroom.messages.delete_all
       match.chatroom.delete
       match.meetings.delete_all
     end
@@ -35,6 +36,7 @@ class Profile < ApplicationRecord
   def find_mentors
     matches_as_mentee.each do |match|
       Like.where(match_id: match.id).delete_all
+      match.chatroom.messages.delete_all
       match.chatroom.delete
       match.meetings.delete_all
     end
