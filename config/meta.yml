@@ -1,5 +1,5 @@
 meta_product_name: "MentorHub"
 meta_title: "MentorHub - Knowledge doesn't retire"
 meta_description: "We match reitrees with recent graduates and young people seeking industry advice"
-meta_image: "mentee.jpg" # should exist in `app/assets/images/`
+meta_image: "ogimage.jpg" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"
