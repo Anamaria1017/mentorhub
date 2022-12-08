@@ -26,7 +26,7 @@
     <% @matches.each do |match| %>
       <% if @profile.mentor == false %>
         <%# I am a Mentee and should see Mentors %>
-        <div class="card">
+        <div class="card hvr-grow">
           <%= link_to '', match_path(match), class: 'card-link' %>
             <div class ="row p-2 d-flex align-items-center">
               <% if match.mentor.photo.attached?%>
@@ -66,7 +66,7 @@
         </div>
       <% else %>
         <%# I am Mentor and should see Mentees %>
-        <div class="card">
+        <div class="card hvr-grow">
           <%= link_to '', match_path(match), class: 'card-link' %>
           <div class="row p-2 d-flex align-items-center">
             <% if match.mentee.photo.attached?%>
