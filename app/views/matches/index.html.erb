@@ -28,17 +28,17 @@
         <%# I am a Mentee and should see Mentors %>
         <div class="card hvr-grow">
           <%= link_to '', match_path(match), class: 'card-link' %>
-            <div class ="row p-2 d-flex align-items-center">
-              <% if match.mentor.photo.attached?%>
-                <%= cl_image_tag match.mentor.photo.key, crop: :fill, class: "col-4 ml-3" %>
-              <% else %>
-                <%= image_tag "logo.webp", crop: :fill, class: "col-4 ml-3" %>
-              <% end %>
-              <div class = "py-2 col-7">
-                <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
-                <h5><%= match.mentor.city.capitalize %></h5>
-              </div>
+          <div class ="row p-2 d-flex align-items-center">
+            <% if match.mentor.photo.attached?%>
+              <%= cl_image_tag match.mentor.photo.key, crop: :fill, class: "col-4 ml-3" %>
+            <% else %>
+              <%= image_tag "logo.webp", crop: :fill, class: "col-4 ml-3" %>
+            <% end %>
+            <div class = "py-2 col-7">
+              <h3><%= link_to match.mentor.first_name, match_path(match) %></h3>
+              <h5><%= match.mentor.city.capitalize %></h5>
             </div>
+          </div>
           <div class="card-infos py-3">
             <p> <strong>Last role: </strong> <%= match.mentor.position %></p>
             <p><strong>Industry: </strong> <%= match.mentor.target_industry %></p>
@@ -64,6 +64,7 @@
             </div>
           </div>
         </div>
+        <%# render "show_match_modal", match: match %>
       <% else %>
         <%# I am Mentor and should see Mentees %>
         <div class="card hvr-grow">
