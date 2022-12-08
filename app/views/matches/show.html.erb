@@ -16,15 +16,15 @@
         </div>
         <div class="card-match-info">
           <% unless @match.mentor.birthday.blank? %><p> <strong>Birthday: </strong> <%= @match.mentor.birthday%></p><% end %>
-          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA; ">Working Experience</h5>
+          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef;">Working Experience</h5>
           <p><strong>Industry:</strong> <%= @match.mentor.target_industry %></p>
           <% unless @match.mentor.position.blank? %><p><strong>Last role: </strong> <%= @match.mentor.position %></p><% end %>
           <% unless @match.mentor.mentor_skills.blank? %><p> <strong>My skills: </strong> <%= @match.mentor.mentor_skills%></p><% end %>
           <% unless @match.mentor.languages.blank? %><p><strong>Languages: </strong> <%= @match.mentor.languages %></p><% end %>
-          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA;">Educational Background</h5>
+          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef;">Educational Background</h5>
           <% unless @match.mentor.highest_education.blank? %><p> <strong>Highest education title: </strong><%= @match.mentor.highest_education %></p><% end %>
           <% unless @match.mentor.edu_organization.blank? %><p> <strong>School/University: </strong> <%= @match.mentor.edu_organization%></p><% end %>
-          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA;">Meeting Preferences</h5>
+          <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef;">Meeting Preferences</h5>
           <% unless @match.mentor.preferred_language.blank? %><p><strong>Preferred meeting language: </strong> <%= @match.mentor.preferred_language%></p><% end %>
           <% unless @match.mentor.type_of_meeting.blank? %><p><strong>Preferred type of meeting: </strong> <%= @match.mentor.type_of_meeting.capitalize%></p><% end %>
           <% unless @match.mentor.proximity_preference.blank? %><p><strong>Preferred proximity </strong><%= @match.mentor.proximity_preference%></p><% end %>
@@ -67,15 +67,15 @@
           </div>
           <div class="card-match-info">
               <% unless @match.mentee.birthday.blank?%><p><strong>Birthday: </strong> <%= @match.mentee.birthday%></p><% end %>
-                <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA; ">Working Experience</h5>
+                <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef; ">Working Experience</h5>
                 <p><strong>Industry: </strong> <%= @match.mentee.target_industry %></p>
                 <% unless @match.mentee.position.blank? %><p><strong>Current role: </strong> <%= @match.mentee.position %></p><% end %>
                 <% unless @match.mentee.languages.blank? %><p><strong>Languages: </strong><%= @match.mentee.languages %></p><% end %>
-                <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA;">Educational Background</h5>
+                <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef;">Educational Background</h5>
                 <% unless @match.mentee.highest_education.blank? %><p><strong> Highest education title: </strong><%= @match.mentee.highest_education %></p><% end %>
                 <% unless @match.mentee.edu_organization.blank? %><p><strong>School/University: </strong> <%= @match.mentee.edu_organization%></p><% end %>
                 <% unless @match.mentee.working_experience.blank? %><p><strong>Working experience: </strong> <%= @match.mentee.working_experience %></p><% end %>
-              <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #794FFA;">Meeting Preferences</h5>
+              <h5 class= " d-flex justify-content-start pb-2" style="padding-left: 34px; color: #9272ef;">Meeting Preferences</h5>
               <% unless @match.mentee.preferred_language.blank? %><p><strong>Preferred meeting language: </strong><%= @match.mentee.preferred_language%></p><% end %>
               <% unless @match.mentee.type_of_meeting.blank? %><p><strong>Preferred type of meeting: </strong> <%= @match.mentee.type_of_meeting.capitalize%></p><% end %>
               <% unless @match.mentee.proximity_preference.blank? %><p><strong>Preferred proximity: </strong> <%= @match.mentee.proximity_preference%></p><% end %>
